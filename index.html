@@ -1,0 +1,706 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>trip-compass</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- header -->
+    <header class="l-header">
+      <div class="l-header__inner">
+        <h1 class="l-header__logo">
+          <a href="/" class="l-header__logoLink">
+            <img src="/src/assets/common/logo.png" alt="Trip Compassのロゴ" />
+            <span class="l-header__logoText">Trip Compass</span>
+          </a>
+        </h1>
+        <nav class="l-header__nav">
+          <ul class="l-header__navList">
+            <li class="l-header__navItem">
+              <a href="/diagnosis" class="l-header__navLink">旅先診断</a>
+            </li>
+            <li class="l-header__navItem">
+              <a href="/create" class="l-header__navLink">しおりを作成</a>
+            </li>
+            <li class="l-header__navItem">
+              <a href="/itineraries" class="l-header__navLink"
+                >みんなのしおり</a
+              >
+            </li>
+            <li class="l-header__navItem">
+              <a href="my-itineraries" class="l-header__navLink"
+                >自分のしおり</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <a href="/auth" class="l-header__button">
+          <span class="l-header__buttonText">ログイン / 新規登録</span>
+          <span class="l-header__buttonIcon">
+            <img src="/src/assets/common/account-icon-white.svg" />
+          </span>
+        </a>
+      </div>
+    </header>
+    <!-- ./ header -->
+
+    <main class="p-top">
+      <!-- kv -->
+      <section class="p-top__kv">
+        <div class="p-top__kvTextBox">
+          <h2 class="p-top__kvTitle">
+            迷わず決めて、すぐ旅のしおりに残す。<br />条件に合う行き先を診断して、<br
+              class="u-pcDb"
+            />そのまま旅行の予定を整理できます。
+          </h2>
+        </div>
+      </section>
+      <!-- ./ kv -->
+
+      <!-- 旅の計画をはじめる -->
+      <section class="p-top__start l-section">
+        <div class="l-inner">
+          <div class="p-top__startList">
+            <img src="/src/assets/top/diagnosis-img.jpg" alt="旅先診断をする" />
+            <div class="p-top__startItem">
+              <hgroup class="c-title__box">
+                <h2 class="c-title">旅先診断</h2>
+              </hgroup>
+              <p class="c-text u-mt-1lh">
+                どこに行くか迷っているときは、出発月や日数、旅のスタイルからおすすめの行き先を診断できます。気になる場所が見つかったら、そのまま旅の予定をまとめて、しおりとして保存できます。
+              </p>
+              <a href="/diagnosis" class="c-button p-top__startButton">
+                <span class="c-button__text">診断開始</span>
+                <span class="c-button__icon u-pencil"> </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ./ 旅の計画をはじめる -->
+
+      <!-- 最近作成したしおり -->
+      <section class="p-top__latest l-section">
+        <div class="l-inner">
+          <div class="c-title__list">
+            <hgroup class="c-title__box">
+              <h3 class="c-title">最近作成したしおり</h3>
+            </hgroup>
+            <a href="/create" class="c-button u-primary">
+              <span class="c-button__text">しおりを作成する</span>
+              <span class="c-button__icon u-note"></span>
+            </a>
+          </div>
+          <div class="c-sort" data-sort="latest-trips" data-sort-order="desc">
+            <button
+              type="button"
+              class="c-sort__button"
+              data-sort-trigger
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-label="最近作成したしおりの並び順を選択"
+            >
+              <span class="c-sort__buttonLabel" data-sort-current
+                >新しい順</span
+              >
+              <span class="c-sort__buttonIcon" aria-hidden="true">
+                <img src="/src/assets/common/arrow-bottom-black.svg" alt="" />
+              </span>
+            </button>
+            <div class="c-sort__menu" data-sort-menu hidden>
+              <button
+                type="button"
+                class="c-sort__option"
+                data-sort-option="desc"
+                aria-pressed="true"
+              >
+                新しい順
+              </button>
+              <button
+                type="button"
+                class="c-sort__option"
+                data-sort-option="asc"
+                aria-pressed="false"
+              >
+                古い順
+              </button>
+            </div>
+          </div>
+          <ul class="c-column--04" data-sort-list="latest-trips">
+            <li
+              class="c-column__item"
+              data-sort-item
+              data-sort-date="2026-05-03"
+            >
+              <a href="" class="c-column__link">
+                <img
+                  src="/src/assets/cities/sapporo-edit.webp"
+                  class="c-column__image"
+                  alt="ソウル2泊3日カフェ巡り旅"
+                />
+                <div class="c-column__textBox">
+                  <h3 class="c-column__title">ソウル2泊3日カフェ巡り旅</h3>
+                  <div class="c-column__infoList">
+                    <span class="c-column__date">2026.05.03 - 2026.05.05</span>
+                    <span class="c-column__public">非公開</span>
+                  </div>
+                </div>
+                <div class="c-column__iconBox">
+                  <span class="c-column__icon u-share" aria-hidden="true">
+                    <img
+                      src="/src/assets/common/share-icon.svg"
+                      alt=""
+                      class="c-column__iconImage"
+                    />
+                  </span>
+                  <span class="c-column__icon u-delete" aria-hidden="true">
+                    <img
+                      src="/src/assets/common/delete-icon.svg"
+                      alt=""
+                      class="c-column__iconImage"
+                    />
+                  </span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- ./ 最近作成したしおり -->
+
+      <!-- みんなのしおり -->
+      <section class="p-top__itineraries l-section">
+        <div class="l-inner">
+          <div class="c-title__list">
+            <hgroup class="c-title__box">
+              <h3 class="c-title">みんなのしおり</h3>
+            </hgroup>
+            <a href="/itineraries" class="c-button u-primary">
+              <span class="c-button__text">すべてみる</span>
+              <span class="c-button__icon u-note"></span>
+            </a>
+          </div>
+          <ul class="c-column--04 p-top__itinerariesList">
+            <li
+              class="c-column__item"
+              data-sort-item
+              data-sort-date="2026-05-03"
+            >
+              <a href="" class="c-column__link">
+                <img
+                  src="/src/assets/cities/sapporo-edit.webp"
+                  class="c-column__image"
+                  alt="ソウル2泊3日カフェ巡り旅"
+                />
+                <div class="c-column__textBox">
+                  <h3 class="c-column__title">ソウル2泊3日カフェ巡り旅</h3>
+                  <div class="c-column__profileList">
+                    <span class="c-column__profile">
+                      <img src="/src/assets/cities/sapporo-edit.webp" alt="" />
+                    </span>
+                    <span class="c-column__date">2026.05.03 - 2026.05.05</span>
+                    <button
+                      type="button"
+                      class="c-like__button"
+                      data-like-button
+                      data-like-id="trip-seoul-cafe"
+                      data-like-count="24"
+                      aria-label="ソウル2泊3日カフェ巡り旅にいいねする"
+                    >
+                      <span class="c-like__icon" aria-hidden="true">
+                        <svg
+                          data-prefix="far"
+                          data-icon="heart"
+                          class="c-like__svg"
+                          role="img"
+                          viewBox="0 0 512 512"
+                          aria-hidden="true"
+                        >
+                          <path
+                            fill="currentColor"
+                            d="M378.9 80c-27.3 0-53 13.1-69 35.2l-34.4 47.6c-4.5 6.2-11.7 9.9-19.4 9.9s-14.9-3.7-19.4-9.9l-34.4-47.6c-16-22.1-41.7-35.2-69-35.2-47 0-85.1 38.1-85.1 85.1 0 49.9 32 98.4 68.1 142.3 41.1 50 91.4 94 125.9 120.3 3.2 2.4 7.9 4.2 14 4.2s10.8-1.8 14-4.2c34.5-26.3 84.8-70.4 125.9-120.3 36.2-43.9 68.1-92.4 68.1-142.3 0-47-38.1-85.1-85.1-85.1zM271 87.1c25-34.6 65.2-55.1 107.9-55.1 73.5 0 133.1 59.6 133.1 133.1 0 68.6-42.9 128.9-79.1 172.8-44.1 53.6-97.3 100.1-133.8 127.9-12.3 9.4-27.5 14.1-43.1 14.1s-30.8-4.7-43.1-14.1C176.4 438 123.2 391.5 79.1 338 42.9 294.1 0 233.7 0 165.1 0 91.6 59.6 32 133.1 32 175.8 32 216 52.5 241 87.1l15 20.7 15-20.7z"
+                          ></path>
+                        </svg>
+                      </span>
+                      <span class="c-like__count" data-like-count-display
+                        >24</span
+                      >
+                    </button>
+                  </div>
+                </div>
+                <div class="c-column__iconBox">
+                  <span class="c-column__icon u-share" aria-hidden="true">
+                    <img
+                      src="/src/assets/common/share-icon.svg"
+                      alt=""
+                      class="c-column__iconImage"
+                    />
+                  </span>
+                  <span class="c-column__icon u-delete" aria-hidden="true">
+                    <img
+                      src="/src/assets/common/delete-icon.svg"
+                      alt=""
+                      class="c-column__iconImage"
+                    />
+                  </span>
+                </div>
+              </a>
+            </li>
+            <li
+              class="c-column__item"
+              data-sort-item
+              data-sort-date="2026-07-18"
+            >
+              <a href="" class="c-column__link">
+                <img
+                  src="/src/assets/cities/taipei-edit.webp"
+                  class="c-column__image"
+                  alt="台北2泊3日グルメ旅"
+                />
+                <div class="c-column__textBox">
+                  <h3 class="c-column__title">台北2泊3日グルメ旅</h3>
+                  <div class="c-column__profileList">
+                    <span class="c-column__profile">
+                      <img src="/src/assets/cities/sapporo-edit.webp" alt="" />
+                    </span>
+                    <span class="c-column__date">2026.07.18 - 2026.07.20</span>
+                    <button
+                      type="button"
+                      class="c-like__button"
+                      data-like-button
+                      data-like-id="trip-taipei-gourmet"
+                      data-like-count="18"
+                      aria-label="台北2泊3日グルメ旅にいいねする"
+                    >
+                      <span class="c-like__icon" aria-hidden="true">
+                        <svg
+                          data-prefix="far"
+                          data-icon="heart"
+                          class="c-like__svg"
+                          role="img"
+                          viewBox="0 0 512 512"
+                          aria-hidden="true"
+                        >
+                          <path
+                            fill="currentColor"
+                            d="M378.9 80c-27.3 0-53 13.1-69 35.2l-34.4 47.6c-4.5 6.2-11.7 9.9-19.4 9.9s-14.9-3.7-19.4-9.9l-34.4-47.6c-16-22.1-41.7-35.2-69-35.2-47 0-85.1 38.1-85.1 85.1 0 49.9 32 98.4 68.1 142.3 41.1 50 91.4 94 125.9 120.3 3.2 2.4 7.9 4.2 14 4.2s10.8-1.8 14-4.2c34.5-26.3 84.8-70.4 125.9-120.3 36.2-43.9 68.1-92.4 68.1-142.3 0-47-38.1-85.1-85.1-85.1zM271 87.1c25-34.6 65.2-55.1 107.9-55.1 73.5 0 133.1 59.6 133.1 133.1 0 68.6-42.9 128.9-79.1 172.8-44.1 53.6-97.3 100.1-133.8 127.9-12.3 9.4-27.5 14.1-43.1 14.1s-30.8-4.7-43.1-14.1C176.4 438 123.2 391.5 79.1 338 42.9 294.1 0 233.7 0 165.1 0 91.6 59.6 32 133.1 32 175.8 32 216 52.5 241 87.1l15 20.7 15-20.7z"
+                          ></path>
+                        </svg>
+                      </span>
+                      <span class="c-like__count" data-like-count-display
+                        >18</span
+                      >
+                    </button>
+                  </div>
+                </div>
+                <div class="c-column__iconBox">
+                  <span class="c-column__icon" aria-hidden="true">
+                    <img
+                      src="/src/assets/common/share-icon.svg"
+                      alt=""
+                      class="c-column__iconImage"
+                    />
+                  </span>
+                  <span class="c-column__icon" aria-hidden="true">
+                    <img
+                      src="/src/assets/common/delete-icon.svg"
+                      alt=""
+                      class="c-column__iconImage"
+                    />
+                  </span>
+                </div>
+              </a>
+            </li>
+            <li
+              class="c-column__item"
+              data-sort-item
+              data-sort-date="2026-04-10"
+            >
+              <a href="" class="c-column__link">
+                <img
+                  src="/src/assets/cities/sapporo-edit.webp"
+                  class="c-column__image"
+                  alt="札幌"
+                />
+                <div class="c-column__textBox">
+                  <h3 class="c-column__title">札幌1泊2日温泉旅</h3>
+                  <div class="c-column__profileList">
+                    <span class="c-column__profile">
+                      <img src="/src/assets/cities/sapporo-edit.webp" alt="" />
+                    </span>
+                    <span class="c-column__date">2026.04.10 - 2026.04.11</span>
+                    <button
+                      type="button"
+                      class="c-like__button"
+                      data-like-button
+                      data-like-id="trip-sapporo-onsen"
+                      data-like-count="9"
+                      aria-label="札幌1泊2日温泉旅にいいねする"
+                    >
+                      <span class="c-like__icon" aria-hidden="true">
+                        <svg
+                          data-prefix="far"
+                          data-icon="heart"
+                          class="c-like__svg"
+                          role="img"
+                          viewBox="0 0 512 512"
+                          aria-hidden="true"
+                        >
+                          <path
+                            fill="currentColor"
+                            d="M378.9 80c-27.3 0-53 13.1-69 35.2l-34.4 47.6c-4.5 6.2-11.7 9.9-19.4 9.9s-14.9-3.7-19.4-9.9l-34.4-47.6c-16-22.1-41.7-35.2-69-35.2-47 0-85.1 38.1-85.1 85.1 0 49.9 32 98.4 68.1 142.3 41.1 50 91.4 94 125.9 120.3 3.2 2.4 7.9 4.2 14 4.2s10.8-1.8 14-4.2c34.5-26.3 84.8-70.4 125.9-120.3 36.2-43.9 68.1-92.4 68.1-142.3 0-47-38.1-85.1-85.1-85.1zM271 87.1c25-34.6 65.2-55.1 107.9-55.1 73.5 0 133.1 59.6 133.1 133.1 0 68.6-42.9 128.9-79.1 172.8-44.1 53.6-97.3 100.1-133.8 127.9-12.3 9.4-27.5 14.1-43.1 14.1s-30.8-4.7-43.1-14.1C176.4 438 123.2 391.5 79.1 338 42.9 294.1 0 233.7 0 165.1 0 91.6 59.6 32 133.1 32 175.8 32 216 52.5 241 87.1l15 20.7 15-20.7z"
+                          ></path>
+                        </svg>
+                      </span>
+                      <span class="c-like__count" data-like-count-display
+                        >9</span
+                      >
+                    </button>
+                  </div>
+                </div>
+                <div class="c-column__iconBox">
+                  <span class="c-column__icon" aria-hidden="true">
+                    <img
+                      src="/src/assets/common/share-icon.svg"
+                      alt=""
+                      class="c-column__iconImage"
+                    />
+                  </span>
+                  <span class="c-column__icon" aria-hidden="true">
+                    <img
+                      src="/src/assets/common/delete-icon.svg"
+                      alt=""
+                      class="c-column__iconImage"
+                    />
+                  </span>
+                </div>
+              </a>
+            </li>
+            <li
+              class="c-column__item"
+              data-sort-item
+              data-sort-date="2026-08-02"
+            >
+              <a href="" class="c-column__link">
+                <img
+                  src="/src/assets/cities/sapporo-edit.webp"
+                  class="c-column__image"
+                  alt="釜山3泊4日海辺ステイ"
+                />
+                <div class="c-column__textBox">
+                  <h3 class="c-column__title">釜山3泊4日海辺ステイ</h3>
+                  <div class="c-column__profileList">
+                    <span class="c-column__profile">
+                      <img src="/src/assets/cities/sapporo-edit.webp" alt="" />
+                    </span>
+                    <span class="c-column__date">2026.08.02 - 2026.08.05</span>
+                    <button
+                      type="button"
+                      class="c-like__button"
+                      data-like-button
+                      data-like-id="trip-busan-seaside"
+                      data-like-count="15"
+                      aria-label="釜山3泊4日海辺ステイにいいねする"
+                    >
+                      <span class="c-like__icon" aria-hidden="true">
+                        <svg
+                          data-prefix="far"
+                          data-icon="heart"
+                          class="c-like__svg"
+                          role="img"
+                          viewBox="0 0 512 512"
+                          aria-hidden="true"
+                        >
+                          <path
+                            fill="currentColor"
+                            d="M378.9 80c-27.3 0-53 13.1-69 35.2l-34.4 47.6c-4.5 6.2-11.7 9.9-19.4 9.9s-14.9-3.7-19.4-9.9l-34.4-47.6c-16-22.1-41.7-35.2-69-35.2-47 0-85.1 38.1-85.1 85.1 0 49.9 32 98.4 68.1 142.3 41.1 50 91.4 94 125.9 120.3 3.2 2.4 7.9 4.2 14 4.2s10.8-1.8 14-4.2c34.5-26.3 84.8-70.4 125.9-120.3 36.2-43.9 68.1-92.4 68.1-142.3 0-47-38.1-85.1-85.1-85.1zM271 87.1c25-34.6 65.2-55.1 107.9-55.1 73.5 0 133.1 59.6 133.1 133.1 0 68.6-42.9 128.9-79.1 172.8-44.1 53.6-97.3 100.1-133.8 127.9-12.3 9.4-27.5 14.1-43.1 14.1s-30.8-4.7-43.1-14.1C176.4 438 123.2 391.5 79.1 338 42.9 294.1 0 233.7 0 165.1 0 91.6 59.6 32 133.1 32 175.8 32 216 52.5 241 87.1l15 20.7 15-20.7z"
+                          ></path>
+                        </svg>
+                      </span>
+                      <span class="c-like__count" data-like-count-display
+                        >15</span
+                      >
+                    </button>
+                  </div>
+                </div>
+                <div class="c-column__iconBox">
+                  <span class="c-column__icon" aria-hidden="true">
+                    <img
+                      src="/src/assets/common/share-icon.svg"
+                      alt=""
+                      class="c-column__iconImage"
+                    />
+                  </span>
+                  <span class="c-column__icon" aria-hidden="true">
+                    <img
+                      src="/src/assets/common/delete-icon.svg"
+                      alt=""
+                      class="c-column__iconImage"
+                    />
+                  </span>
+                </div>
+              </a>
+            </li>
+            <li
+              class="c-column__item"
+              data-sort-item
+              data-sort-date="2026-06-11"
+            >
+              <a href="" class="c-column__link">
+                <img
+                  src="/src/assets/cities/sapporo-edit.webp"
+                  class="c-column__image"
+                  alt="福岡2泊3日屋台めぐり"
+                />
+                <div class="c-column__textBox">
+                  <h3 class="c-column__title">福岡2泊3日屋台めぐり</h3>
+                  <div class="c-column__profileList">
+                    <span class="c-column__profile">
+                      <img src="/src/assets/cities/sapporo-edit.webp" alt="" />
+                    </span>
+                    <span class="c-column__date">2026.06.11 - 2026.06.13</span>
+                    <button
+                      type="button"
+                      class="c-like__button"
+                      data-like-button
+                      data-like-id="trip-fukuoka-yatai"
+                      data-like-count="21"
+                      aria-label="福岡2泊3日屋台めぐりにいいねする"
+                    >
+                      <span class="c-like__icon" aria-hidden="true">
+                        <svg
+                          data-prefix="far"
+                          data-icon="heart"
+                          class="c-like__svg"
+                          role="img"
+                          viewBox="0 0 512 512"
+                          aria-hidden="true"
+                        >
+                          <path
+                            fill="currentColor"
+                            d="M378.9 80c-27.3 0-53 13.1-69 35.2l-34.4 47.6c-4.5 6.2-11.7 9.9-19.4 9.9s-14.9-3.7-19.4-9.9l-34.4-47.6c-16-22.1-41.7-35.2-69-35.2-47 0-85.1 38.1-85.1 85.1 0 49.9 32 98.4 68.1 142.3 41.1 50 91.4 94 125.9 120.3 3.2 2.4 7.9 4.2 14 4.2s10.8-1.8 14-4.2c34.5-26.3 84.8-70.4 125.9-120.3 36.2-43.9 68.1-92.4 68.1-142.3 0-47-38.1-85.1-85.1-85.1zM271 87.1c25-34.6 65.2-55.1 107.9-55.1 73.5 0 133.1 59.6 133.1 133.1 0 68.6-42.9 128.9-79.1 172.8-44.1 53.6-97.3 100.1-133.8 127.9-12.3 9.4-27.5 14.1-43.1 14.1s-30.8-4.7-43.1-14.1C176.4 438 123.2 391.5 79.1 338 42.9 294.1 0 233.7 0 165.1 0 91.6 59.6 32 133.1 32 175.8 32 216 52.5 241 87.1l15 20.7 15-20.7z"
+                          ></path>
+                        </svg>
+                      </span>
+                      <span class="c-like__count" data-like-count-display
+                        >21</span
+                      >
+                    </button>
+                  </div>
+                </div>
+                <div class="c-column__iconBox">
+                  <span class="c-column__icon" aria-hidden="true">
+                    <img
+                      src="/src/assets/common/share-icon.svg"
+                      alt=""
+                      class="c-column__iconImage"
+                    />
+                  </span>
+                  <span class="c-column__icon" aria-hidden="true">
+                    <img
+                      src="/src/assets/common/delete-icon.svg"
+                      alt=""
+                      class="c-column__iconImage"
+                    />
+                  </span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- ./ みんなのしおり -->
+
+      <!-- 旅のガイド -->
+      <section class="l-section p-top__guide">
+        <div class="l-inner">
+          <div class="c-title__list">
+            <hgroup class="c-title__box">
+              <h3 class="c-title">旅のガイド</h3>
+            </hgroup>
+            <a href="/guide" class="c-button u-primary">
+              <span class="c-button__text">すべてみる</span>
+              <span class="c-button__icon u-guide"></span>
+            </a>
+          </div>
+          <ul class="c-column--02 p-top__guideList">
+            <li class="c-column__item">
+              <a href="" class="c-column__link">
+                <img
+                  src="/src/assets/cities/sapporo-edit.webp"
+                  class="p-top__guideImage"
+                  alt="ヨーロッパ周遊のモデルコースを解説！7日間・10日間・14日間のルートは？"
+                />
+                <div class="c-column__textBox">
+                  <h3 class="c-column__title">
+                    ヨーロッパ周遊のモデルコースを解説！7日間・10日間・14日間のルートは？
+                  </h3>
+                  <span class="c-column__date">2026.05.03 - 2026.05.05</span>
+                </div>
+              </a>
+            </li>
+            <li class="c-column__item">
+              <a href="" class="c-column__link">
+                <img
+                  src="/src/assets/cities/sapporo-edit.webp"
+                  class="p-top__guideImage"
+                  alt="ソウル2泊3日カフェ巡り旅"
+                />
+                <div class="c-column__textBox">
+                  <h3 class="c-column__title">
+                    ヨーロッパ周遊のモデルコースを解説！7日間・10日間・14日間のルートは？
+                  </h3>
+                  <span class="c-column__date">2026.05.03 - 2026.05.05</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+          <ul class="c-column--03 p-top__guideList">
+            <li class="c-column__item">
+              <a href="" class="c-column__link">
+                <img
+                  src="/src/assets/cities/sapporo-edit.webp"
+                  class="p-top__guideImage"
+                  alt="ソウル2泊3日カフェ巡り旅"
+                />
+                <div class="c-column__textBox">
+                  <h3 class="c-column__title">
+                    ヨーロッパ周遊のモデルコースを解説！7日間・10日間・14日間のルートは？
+                  </h3>
+                  <span class="c-column__date">2026.05.03 - 2026.05.05</span>
+                </div>
+              </a>
+            </li>
+            <li class="c-column__item">
+              <a href="" class="c-column__link">
+                <img
+                  src="/src/assets/cities/sapporo-edit.webp"
+                  class="p-top__guideImage"
+                  alt="ソウル2泊3日カフェ巡り旅"
+                />
+                <div class="c-column__textBox">
+                  <h3 class="c-column__title">
+                    ヨーロッパ周遊のモデルコースを解説！7日間・10日間・14日間のルートは？
+                  </h3>
+                  <span class="c-column__date">2026.05.03 - 2026.05.05</span>
+                </div>
+              </a>
+            </li>
+            <li class="c-column__item">
+              <a href="" class="c-column__link">
+                <img
+                  src="/src/assets/cities/sapporo-edit.webp"
+                  class="p-top__guideImage"
+                  alt="ソウル2泊3日カフェ巡り旅"
+                />
+                <div class="c-column__textBox">
+                  <h3 class="c-column__title">
+                    ヨーロッパ周遊のモデルコースを解説！7日間・10日間・14日間のルートは？
+                  </h3>
+                  <span class="c-column__date">2026.05.03 - 2026.05.05</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- ./ 旅のコラム -->
+
+      <!-- follow us -->
+      <section class="l-follow">
+        <div class="l-inner">
+          <hgroup class="c-title__box">
+            <h3 class="c-title l-follow__title">Follow Us</h3>
+          </hgroup>
+          <ul class="l-follow__list">
+            <li class="l-follow__item">
+              <a href="" class="l-follow__link">
+                <img
+                  src="/src/assets/common/instagram-icon.svg"
+                  alt="インスタグラムロゴ"
+                />
+              </a>
+            </li>
+            <li class="l-follow__item">
+              <a href="" class="l-follow__link">
+                <img src="/src/assets/common/x-icon.png" alt="xロゴ" />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- ./ follow us -->
+    </main>
+
+    <!-- footer -->
+    <footer class="l-footer">
+      <div class="l-inner">
+        <div class="l-footer__topList">
+          <img src="/src/assets/common/logo.png" alt="Trip-compassロゴ" />
+          <nav class="l-footer__nav">
+            <ul class="l-footer__navList">
+              <li class="l-footer__navItem">
+                <a href="/" class="l-footer__navLink">ホーム</a>
+              </li>
+              <li class="l-footer__navItem">
+                <a href="/diagnosis" class="l-footer__navLink">旅先診断</a>
+              </li>
+              <li class="l-footer__navItem">
+                <a href="/create" class="l-footer__navLink">しおりを作成</a>
+              </li>
+              <li class="l-footer__navItem">
+                <a href="/itineraries" class="l-footer__navLink"
+                  >みんなのしおり</a
+                >
+              </li>
+              <li class="l-footer__navItem">
+                <a href="/my-itineraries" class="l-footer__navLink"
+                  >自分のしおり</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="l-footer__bottomList">
+          <p class="l-footer__copy">
+            <small>&copy; 2026 Trip Compass by Yuto Takabayashi.</small>
+          </p>
+          <nav class="l-footer__bottomNav">
+            <ul class="l-footer__bottomNavList">
+              <li class="l-footer__bottomNavItem">
+                <a href="/about" class="l-footer__bottomNavLink"
+                  >このサイトについて</a
+                >
+              </li>
+              <li class="l-footer__bottomNavItem">
+                <a href="/contact" class="l-footer__bottomNavLink"
+                  >お問い合わせ</a
+                >
+              </li>
+              <li class="l-footer__bottomNavItem">
+                <a href="/terms" class="l-footer__bottomNavLink">利用規約</a>
+              </li>
+              <li class="l-footer__bottomNavItem">
+                <a href="/privacy-policy" class="l-footer__bottomNavLink"
+                  >プライバシーポリシー</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </footer>
+    <!-- ./ footer -->
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

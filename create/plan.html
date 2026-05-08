@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>trip-compass</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <main class="p-plan">
+      <!-- plan -->
+      <section class="p-plan">
+        <div class="l-inner">
+          <!-- ボタン -->
+          <div class="p-plan__buttonBox">
+            <a class="p-plan__buttonList" href="/">
+              <span class="p-plan__home">
+                <img src="/src/assets/common/home-icon-white.svg" />
+              </span>
+            </a>
+            <div class="p-plan__buttonList">
+              <button class="p-plan__button u-share">
+                <span>
+                  <img src="/src/assets/common/share-icon.svg" />
+                </span>
+                共有
+              </button>
+              <button
+                class="p-plan__button"
+                type="button"
+                data-plan-undo
+                disabled
+              >
+                <span>
+                  <img src="/src/assets/common/replay-icon-black.svg" />
+                </span>
+                元に戻す
+              </button>
+              <button
+                class="p-plan__button"
+                type="button"
+                data-plan-redo
+                disabled
+              >
+                <span>
+                  <img src="/src/assets/common/forward-icon-black.svg" />
+                </span>
+                やり直し
+              </button>
+            </div>
+          </div>
+          <div class="p-plan__body">
+            <div class="l-sidebar" data-plan-editor>
+              <div class="l-sidebar__list">
+                <div class="l-sidebar__item">
+                  <button
+                    class="l-sidebar__button"
+                    type="button"
+                    data-plan-scroll-target=".p-plan__kv"
+                  >
+                    基本情報
+                  </button>
+                  <button class="l-sidebar__button" type="button">日程</button>
+                  <button class="l-sidebar__button" type="button">
+                    持ち物
+                  </button>
+                  <button class="l-sidebar__button" type="button">メモ</button>
+                </div>
+              </div>
+            </div>
+            <div class="p-plan__inner">
+              <!-- kv -->
+              <div class="p-plan__kv" tabindex="-1">
+                <input
+                  type="file"
+                  accept=".jpeg,.jpg,.png,.webp"
+                  class="p-plan__cameraInput"
+                />
+                <button
+                  type="button"
+                  class="p-plan__camera"
+                  aria-label="画像を変更する"
+                  title="画像を変更する"
+                >
+                  <span class="p-plan__cameraIcon">
+                    <img
+                      src="/src/assets/common/camera-icon-white.svg"
+                      alt="カメラアイコン"
+                    />
+                  </span>
+                </button>
+                <div class="p-plan__kvTextBox">
+                  <div class="p-plan__kvTextList">
+                    <input
+                      id="plan-title"
+                      type="text"
+                      name="title"
+                      placeholder="例: 初夏の京都2泊3日"
+                      aria-label="タイトル"
+                      title="タイトルを編集"
+                      class="p-plan__kvInput"
+                      readonly
+                    />
+                    <button
+                      type="button"
+                      class="p-plan__kvInputChangeBox"
+                      aria-controls="plan-title"
+                      data-plan-title-edit
+                    >
+                      <span
+                        class="p-plan__kvInputChangeIcon"
+                        aria-hidden="true"
+                      >
+                        <img src="/src/assets/common/pencil-icon-green.svg" />
+                      </span>
+                      <span
+                        class="p-plan__kvInputChangeText"
+                        aria-hidden="true"
+                      >
+                        タイトルを編集
+                      </span>
+                    </button>
+                  </div>
+                  <button
+                    type="button"
+                    class="p-plan__kvDate"
+                    aria-label="日付を変更"
+                    aria-controls="date"
+                    data-plan-date-edit
+                  >
+                    <span class="p-plan__kvDateImage">
+                      <img
+                        src="/src/assets/common/calendar-icon-green.svg"
+                        alt="カレンダーアイコン"
+                      />
+                    </span>
+                    <span class="p-plan__kvDateText"></span>
+                  </button>
+                  <input
+                    type="text"
+                    id="date"
+                    name="date"
+                    class="p-plan__dateInput"
+                    tabindex="-1"
+                    aria-hidden="true"
+                  />
+                </div>
+              </div>
+
+              <div class="p-plan__dateArea">
+                <!-- 日程 -->
+                <div class="p-plan__date">
+                  <hgroup class="c-title__box">
+                    <h3 class="c-title">日程</h3>
+                  </hgroup>
+                  <div class="p-plan__dateList">
+                    <div class="p-plan__dateItem">
+                      <span class="p-plan__dateText">2026/05/19（水）</span>
+                      <div class="p-plan__dateRelative">
+                        <input
+                          type="text"
+                          placeholder="スポットを追加"
+                          autocomplete="off"
+                          aria-autocomplete="list"
+                          aria-expanded="false"
+                          data-plan-spot-input
+                        />
+                        <ul
+                          class="p-plan__spotSuggestions"
+                          data-plan-spot-suggestions
+                          hidden
+                        ></ul>
+                        <div class="p-plan__dateIcon">
+                          <img src="/src/assets/common/pin-icon-green.svg" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <aside class="p-plan__mapSidebar" aria-label="地図">
+                  <iframe
+                    class="p-plan__map"
+                    data-plan-map
+                    title="旅行先の地図"
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=135.6904%2C34.9589%2C135.8156%2C35.0436&amp;layer=mapnik&amp;marker=35.0116%2C135.7681"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </aside>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ./ plan -->
+
+      <!-- follow us -->
+      <section class="l-follow">
+        <div class="l-inner">
+          <hgroup class="c-title__box">
+            <h3 class="c-title l-follow__title">Follow Us</h3>
+          </hgroup>
+          <ul class="l-follow__list">
+            <li class="l-follow__item">
+              <a href="" class="l-follow__link">
+                <img
+                  src="/src/assets/common/instagram-icon.svg"
+                  alt="インスタグラムロゴ"
+                />
+              </a>
+            </li>
+            <li class="l-follow__item">
+              <a href="" class="l-follow__link">
+                <img src="/src/assets/common/x-icon.png" alt="xロゴ" />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- ./ follow us -->
+    </main>
+
+    <!-- footer -->
+    <footer class="l-footer">
+      <div class="l-inner">
+        <div class="l-footer__topList">
+          <img src="/src/assets/common/logo.png" alt="Trip-compassロゴ" />
+          <nav class="l-footer__nav">
+            <ul class="l-footer__navList">
+              <li class="l-footer__navItem">
+                <a href="/" class="l-footer__navLink">ホーム</a>
+              </li>
+              <li class="l-footer__navItem">
+                <a href="/diagnosis" class="l-footer__navLink">旅先診断</a>
+              </li>
+              <li class="l-footer__navItem">
+                <a href="/create" class="l-footer__navLink">しおりを作成</a>
+              </li>
+              <li class="l-footer__navItem">
+                <a href="/itineraries" class="l-footer__navLink"
+                  >みんなのしおり</a
+                >
+              </li>
+              <li class="l-footer__navItem">
+                <a href="/my-itineraries" class="l-footer__navLink"
+                  >自分のしおり</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="l-footer__bottomList">
+          <p class="l-footer__copy">
+            <small>&copy; 2026 Trip Compass by Yuto Takabayashi.</small>
+          </p>
+          <nav class="l-footer__bottomNav">
+            <ul class="l-footer__bottomNavList">
+              <li class="l-footer__bottomNavItem">
+                <a href="/about" class="l-footer__bottomNavLink"
+                  >このサイトについて</a
+                >
+              </li>
+              <li class="l-footer__bottomNavItem">
+                <a href="/contact" class="l-footer__bottomNavLink"
+                  >お問い合わせ</a
+                >
+              </li>
+              <li class="l-footer__bottomNavItem">
+                <a href="/terms" class="l-footer__bottomNavLink">利用規約</a>
+              </li>
+              <li class="l-footer__bottomNavItem">
+                <a href="/privacy-policy" class="l-footer__bottomNavLink"
+                  >プライバシーポリシー</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </footer>
+    <!-- ./ footer -->
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

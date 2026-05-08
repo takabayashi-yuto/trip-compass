@@ -1,0 +1,61 @@
+@use "../../foundation/setting" as *;
+
+.c-button {
+  background-color: $color-green;
+  color: $color-main;
+  font-size: 1.6rem;
+  width: fit-content;
+  border-radius: 999px;
+  padding: 0.6em 1.5em;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+
+  &.u-center {
+    margin: auto;
+  }
+
+  &.u-mt-4em {
+    margin-top: 4em;
+  }
+
+  &__icon {
+    position: relative;
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      width: 100%;
+      transform: translateY(-50%);
+      height: 100%;
+    }
+
+    &.u-pencil {
+      &::after {
+        background: url("/src/assets/common/pencil-icon-white.svg") no-repeat;
+        background-size: cover;
+      }
+    }
+
+    &.u-guide {
+      &::after {
+        background: url("/src/assets/common/guide-icon-white.svg") no-repeat;
+        background-size: cover;
+      }
+    }
+
+    &.u-note {
+      &::after {
+        background: url("/src/assets/common/note-icon-white.svg") no-repeat;
+        background-size: cover;
+      }
+    }
+  }
+}

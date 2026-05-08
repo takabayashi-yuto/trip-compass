@@ -1,0 +1,52 @@
+@use "../../foundation/setting" as *;
+
+.c-like {
+  &__button {
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3em;
+    padding: 0.5rem 1rem;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    color: $color-black;
+    cursor: pointer;
+    font-family: $font-family-roboto;
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 1;
+    transition:
+      border-color 0.2s ease,
+      background-color 0.2s ease,
+      color 0.2s ease;
+
+    &:disabled {
+      cursor: default;
+      opacity: 1;
+    }
+
+    &.is-liked {
+      border-color: $color-green;
+    }
+  }
+
+  &__icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    line-height: 1;
+  }
+
+  &__svg {
+    display: block;
+  }
+
+  &__button.is-liked &__icon,
+  &__button.is-liked &__svg {
+    color: #e23e57;
+  }
+
+  &__count {
+    min-width: 2ch;
+    text-align: right;
+  }
+}

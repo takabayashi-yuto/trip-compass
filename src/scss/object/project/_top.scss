@@ -1,0 +1,120 @@
+@use "../../foundation/function" as *;
+@use "../../foundation/setting" as *;
+@use "../../foundation/setting" as *;
+
+.p-top {
+  // kv
+  &__kv {
+    height: 380px;
+    position: relative;
+
+    &::after {
+      content: "";
+      z-index: -1;
+      display: block;
+      position: absolute;
+      background: url("/src/assets/top/kv-image.webp") no-repeat;
+      background-size: cover;
+      width: 100%;
+      height: 100%;
+      background-position: center;
+    }
+  }
+
+  &__kvTextBox {
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    left: 15%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+  }
+
+  &__kvTitle {
+    font-weight: bold;
+    text-shadow:
+      0 0 4px rgba(0, 205, 104, 0.55),
+      0 0 12px rgba(0, 205, 104, 0.35);
+    font-size: rem(26);
+    color: white;
+    line-height: 1.5;
+  }
+  // ./ kv
+
+  // start
+  &__start {
+    margin-top: 8em;
+  }
+
+  &__startList {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 4rem;
+  }
+
+  &__startList img {
+    width: 48%;
+    border-radius: 1rem;
+  }
+
+  &__startItem {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 45%;
+  }
+
+  &__startButton {
+    margin-top: auto;
+  }
+
+  // latest
+  &__latest {
+    margin-top: 6em;
+  }
+
+  &__latestEmpty {
+    grid-column: 1 / -1;
+  }
+
+  &__latestEmptyText {
+    font-size: 1.6rem;
+    line-height: 1.6;
+
+    a {
+      color: $color-green;
+      text-decoration: underline;
+    }
+  }
+
+  // itineraries
+  &__itineraries {
+    margin-top: 6em;
+  }
+
+  &__itinerariesList {
+    margin-top: 2.4em;
+  }
+
+  // guide
+  &__guide {
+    margin-top: 6em;
+  }
+
+  &__guideList {
+    margin-top: 2.4em;
+  }
+
+  &__guideImage {
+    aspect-ratio: 500 / 200;
+    border-radius: 1rem;
+    object-fit: cover;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+  }
+}

@@ -1,0 +1,61 @@
+@use "../../foundation/function" as *;
+@use "../../foundation/setting" as *;
+@use "../../foundation/mixin" as *;
+
+.c-deleteModal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  background: rgba(8, 21, 25, 0.45);
+
+  &[hidden] {
+    display: none;
+  }
+
+  &__panel {
+    width: min(100%, 36rem);
+    padding: 2.4rem;
+    border-radius: 0.8rem;
+    background: $color-main;
+    box-shadow: 0 20px 45px rgba(32, 48, 44, 0.18);
+  }
+
+  &__title {
+    color: $color-black;
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 1.5;
+  }
+
+  &__text {
+    margin-top: 0.8rem;
+    color: $color-gray;
+    font-size: 1.4rem;
+    line-height: 1.6;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2.4rem;
+  }
+
+  &__button {
+    padding: 0.8em 1.2em;
+    border-radius: 999px;
+    background: #f6f6f6;
+    color: $color-black;
+    font-size: 1.4rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  &__button--danger {
+    background: #e23e57;
+    color: $color-main;
+  }
+}

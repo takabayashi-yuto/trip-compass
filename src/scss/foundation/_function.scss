@@ -1,0 +1,16 @@
+// rem変換関数（ベースフォントサイズ: 10px）
+@function rem($px, $base: 10) {
+  @return calc($px / $base * 1rem);
+}
+
+// viewport width変換関数
+
+// PC用のvw変換（デザイン幅: 1440px）
+@function vw-pc($px, $design-width: 1600) {
+  @return min(calc($px / $design-width * 100vw), #{$px}px);
+}
+
+// SP用のvw変換（デザイン幅: 375px）
+@function vw-sp($px, $design-width: 375) {
+  @return min(calc($px / $design-width * 100vw), #{$px}px);
+}

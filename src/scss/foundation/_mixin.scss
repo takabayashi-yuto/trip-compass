@@ -1,0 +1,15 @@
+// メディアクエリ用のミックスイン
+
+// SP用（767px以下）
+@mixin sp {
+  @media screen and (max-width: 767px) {
+    @content;
+  }
+}
+
+// PC用（768px以上）
+@mixin pc {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}

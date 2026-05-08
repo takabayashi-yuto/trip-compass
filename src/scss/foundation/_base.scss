@@ -1,0 +1,23 @@
+@use "./function" as *;
+@use "./setting" as *;
+@use "./mixin" as *;
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: $font-family-base;
+  background-color: #faf6f0;
+  color: #222;
+  letter-spacing: 0.02em;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  object-fit: cover;
+}

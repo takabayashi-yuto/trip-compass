@@ -1,0 +1,369 @@
+@use "../../foundation/function" as *;
+@use "../../foundation/setting" as *;
+@use "../../foundation/mixin" as *;
+
+.p-plan {
+  &__buttonBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2em;
+    position: fixed;
+    width: 100%;
+    padding: 2em;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 1040px;
+    background-color: #faf6f0;
+    z-index: 2;
+  }
+
+  &__buttonList {
+    display: flex;
+    justify-content: flex-end;
+    gap: 2em;
+    align-items: center;
+  }
+
+  &__button {
+    font-size: 1.4rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.2em;
+
+    span {
+      width: 2rem;
+    }
+
+    &:disabled {
+      color: #9aa7a3;
+      cursor: not-allowed;
+
+      img {
+        opacity: 0.45;
+      }
+    }
+
+    &.u-share {
+      background-color: $color-green;
+      color: white;
+      border-radius: 999px;
+      padding: 0.3em 0.6em;
+
+      span {
+        width: 1.5rem;
+      }
+    }
+  }
+
+  &__home {
+    background-color: $color-green;
+    border-radius: 999px;
+    padding: 0.5em;
+
+    img {
+      width: 2.2rem;
+    }
+  }
+
+  &__body {
+    padding-left: 180px;
+    padding-top: 7em;
+
+    @include sp {
+      padding-left: 0;
+    }
+  }
+
+  &__kv {
+    position: relative;
+    aspect-ratio: 16 / 5;
+    padding: 2em;
+    background-color: #17332d;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &__kvTextList {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em;
+    border-bottom: 1px dashed rgba(29, 63, 54, 0.24);
+    align-items: center;
+    padding-bottom: 2em;
+  }
+
+  &__kvDate {
+    border: 0;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    background-color: transparent;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 1px solid $color-green;
+    }
+  }
+
+  &__kvDateText {
+    font-size: 1.5rem;
+  }
+
+  &__dateInput {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &__camera {
+    position: absolute;
+    top: 2em;
+    right: 2em;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.52);
+    border-radius: 999px;
+    -webkit-border-radius: 999px;
+    -moz-border-radius: 999px;
+    -ms-border-radius: 999px;
+    -o-border-radius: 999px;
+    background: rgba(8, 21, 25, 0.36);
+    color: #fff;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 14px 30px rgba(8, 21, 25, 0.22);
+    cursor: pointer;
+  }
+
+  &__cameraInput {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &__cameraIcon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  &__kvTextBox {
+    position: absolute;
+    height: 65%;
+    width: 50%;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    padding: 2em;
+  }
+
+  &__kvInput {
+    font-size: 2.4rem;
+    font-weight: bold;
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0.5em;
+
+    &:focus-visible {
+      outline: 1px solid $color-green;
+    }
+  }
+
+  &__kvInputChangeBox {
+    border: 0;
+    display: flex;
+    padding: 0.45em 0.9em;
+    gap: 1em;
+    align-items: center;
+    background-color: $color-green-hover;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 1px solid $color-green;
+    }
+  }
+
+  &__kvInputChangeIcon {
+    aspect-ratio: 1 / 1;
+    width: 1.4rem;
+  }
+
+  &__kvInputChangeText {
+    font-weight: bold;
+    color: $color-green;
+    font-size: 1.2rem;
+  }
+
+  &__dateArea {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 40rem);
+    gap: 3em;
+    margin-top: 6em;
+    padding-left: 3em;
+
+    @include sp {
+      grid-template-columns: 1fr;
+      gap: 2em;
+      padding-left: 0;
+    }
+  }
+
+  &__date {
+    min-width: 0;
+  }
+
+  &__dateList {
+    margin-top: 3em;
+  }
+
+  &__dateText {
+    font-size: 1.6rem;
+  }
+
+  &__dateRelative {
+    position: relative;
+    margin-top: 1em;
+
+    input {
+      width: 100%;
+      padding: 0.8em 1em 0.8em 2.5em;
+      border: 1px solid $color-border;
+      font-size: 1.6rem;
+      border-radius: 1rem;
+
+      &::placeholder {
+        color: #ccc;
+      }
+
+      &:focus-visible {
+        outline: 1px solid $color-green;
+      }
+    }
+  }
+
+  &__selectedSpotList {
+    display: grid;
+    gap: 0.8em;
+    margin-top: 1.2em;
+  }
+
+  &__selectedSpot {
+    display: grid;
+    gap: 0.2em;
+    padding: 0.9em 1em;
+    border: 1px solid rgba(0, 205, 104, 0.32);
+    border-radius: 1rem;
+    background-color: #fff;
+  }
+
+  &__selectedSpotName {
+    color: $color-green;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  &__selectedSpotMeta {
+    color: #777;
+    font-size: 1.2rem;
+    line-height: 1.4;
+  }
+
+  &__spotSuggestions {
+    position: absolute;
+    z-index: 3;
+    top: 4.5em;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid $color-border;
+    border-radius: 1rem;
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  &__spotSuggestionButton {
+    width: 100%;
+    padding: 0.9em 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+    background-color: #fff;
+    text-align: left;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      background-color: #f6f6f6;
+      outline: none;
+    }
+  }
+
+  &__spotSuggestionItem + &__spotSuggestionItem {
+    border-top: 1px solid $color-border;
+  }
+
+  &__spotSuggestionName {
+    font-size: 1.6rem;
+  }
+
+  &__spotSuggestionMeta {
+    color: #777;
+    font-size: 1.2rem;
+    line-height: 1.4;
+  }
+
+  &__dateIcon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 1em;
+  }
+
+  &__mapSidebar {
+    position: sticky;
+    top: 11rem;
+  }
+
+  &__map {
+    display: block;
+    width: 100%;
+    height: 36rem;
+    border: 1px solid $color-border;
+    border-radius: 1rem;
+    background-color: #eef3f0;
+
+    @include sp {
+      height: 26rem;
+    }
+  }
+}

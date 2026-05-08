@@ -1,0 +1,61 @@
+@use "../foundation/setting" as *;
+
+.l-header {
+  background-color: #f6f6f6;
+  height: 80px;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1080px;
+    width: 100%;
+    padding: 0 20px;
+    margin: auto;
+    height: 100%;
+    align-items: center;
+  }
+
+  &__logo {
+    img {
+      max-width: 50px;
+    }
+  }
+
+  &__logoLink {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+  }
+
+  &__logoText {
+    font-family: $font-family-roboto;
+    font-size: 1.6rem;
+    font-weight: bold;
+    letter-spacing: 0.02em;
+  }
+
+  &__navList {
+    display: flex;
+    gap: 1.5em;
+    align-items: center;
+  }
+
+  &__navLink {
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
+
+  &__button {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    border-radius: 999px;
+    background-color: $color-green;
+    padding: 0.6em 1.5em;
+  }
+
+  &__buttonText {
+    color: white;
+    font-size: 1.4rem;
+  }
+}

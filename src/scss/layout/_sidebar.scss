@@ -1,0 +1,63 @@
+@use "../foundation/function" as *;
+@use "../foundation/mixin" as *;
+@use "../foundation/setting" as *;
+
+.l-sidebar {
+  position: fixed;
+  top: 7em;
+  left: max(20px, calc((100vw - 1080px) / 2 + 20px));
+  z-index: 10;
+  width: 180px;
+  max-height: calc(100vh - 11rem);
+  overflow-y: auto;
+
+  &__list {
+    border: 1px solid $color-border;
+    background-color: #fff;
+    overflow: hidden;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__button {
+    width: 100%;
+    padding: 1.4rem 1.6rem;
+    text-align: left;
+    font-size: 1.4rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  &__button + &__button {
+    border-top: 1px solid #e2e2e2;
+  }
+
+  &__button:hover,
+  &__button:focus-visible {
+    background-color: #f1fff7;
+    outline: none;
+  }
+
+  @media screen and (max-width: 767px) {
+    position: static;
+    width: 100%;
+    max-height: none;
+    overflow-y: visible;
+
+    &__item {
+      flex-direction: row;
+    }
+
+    &__button {
+      text-align: center;
+    }
+
+    &__button + &__button {
+      border-top: 0;
+      border-left: 1px solid #e2e2e2;
+    }
+  }
+}

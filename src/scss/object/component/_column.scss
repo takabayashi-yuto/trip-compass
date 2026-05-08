@@ -1,0 +1,124 @@
+@use "../../foundation/setting" as *;
+
+.c-column {
+  display: grid;
+
+  &--02 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  &--03 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  &--04 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px 16px;
+  }
+
+  &__link {
+    position: relative;
+    display: block;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    aspect-ratio: 246 / 140;
+    object-fit: cover;
+  }
+
+  &__iconBox {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  &__icon {
+    z-index: 1;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: rgba(33, 37, 41, 0.502);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.u-share,
+    &.u-delete {
+      cursor: pointer;
+    }
+  }
+
+  &__iconImage {
+    display: block;
+    opacity: 1;
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  &__textBox {
+    margin-top: 1.5rem;
+  }
+
+  &__title {
+    font-size: 1.6rem;
+    line-height: 1.75;
+    font-weight: bold;
+  }
+
+  &__infoList {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+  }
+
+  &__profileList {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1em;
+    margin-top: 1em;
+  }
+
+  &__profile {
+    width: 2.6em;
+    height: 2.6em;
+
+    img {
+      height: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+    }
+  }
+
+  &__date {
+    color: $color-gray;
+    font-weight: normal;
+    font-family: $font-family-roboto;
+    font-size: 1.3rem;
+    line-height: 2;
+  }
+
+  &__public {
+    text-align: right;
+    display: inline-block;
+    line-height: 2;
+    background-color: $color-green;
+    color: $color-main;
+    border-radius: 1em;
+    padding: 0 1em;
+    font-size: 1.1rem;
+  }
+}

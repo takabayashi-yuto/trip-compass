@@ -1,0 +1,30 @@
+@use "../foundation/setting" as *;
+@use "../foundation/function" as *;
+@use "../foundation/mixin" as *;
+
+.l-follow {
+  margin-top: 4em;
+  padding-top: 4em;
+  border-top: 1px solid $color-border;
+
+  &__title {
+    text-align: center;
+    font-family: $font-family-roboto;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    gap: 4em;
+    margin-top: 6em;
+  }
+
+  &__item {
+    width: 4rem;
+
+    img {
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
+  }
+}

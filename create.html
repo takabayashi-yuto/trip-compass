@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>trip-compass</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- header -->
+    <header class="l-header">
+      <div class="l-header__inner">
+        <h1 class="l-header__logo">
+          <a href="/" class="l-header__logoLink">
+            <img src="/src/assets/common/logo.png" alt="Trip Compassのロゴ" />
+            <span class="l-header__logoText">Trip Compass</span>
+          </a>
+        </h1>
+        <nav class="l-header__nav">
+          <ul class="l-header__navList">
+            <li class="l-header__navItem">
+              <a href="/diagnosis" class="l-header__navLink">旅先診断</a>
+            </li>
+            <li class="l-header__navItem">
+              <a href="/create" class="l-header__navLink">しおりを作成</a>
+            </li>
+            <li class="l-header__navItem">
+              <a href="/itineraries" class="l-header__navLink"
+                >みんなのしおり</a
+              >
+            </li>
+            <li class="l-header__navItem">
+              <a href="my-itineraries" class="l-header__navLink"
+                >自分のしおり</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <a href="/auth" class="l-header__button">
+          <span class="l-header__buttonText">ログイン / 新規登録</span>
+          <span class="l-header__buttonIcon">
+            <img src="/src/assets/common/account-icon-white.svg" />
+          </span>
+        </a>
+      </div>
+    </header>
+    <!-- ./ header -->
+
+    <main class="p-create">
+      <!-- create -->
+      <section class="p-create l-section">
+        <div class="l-inner">
+          <hgroup class="c-title__box u-ta-center">
+            <h2 class="c-title u-ta-center">しおりを作成する</h2>
+          </hgroup>
+          <div class="p-create__content">
+            <form action="">
+              <div class="p-create__list">
+                <label for="destination">
+                  <span class="p-create__title"> 行き先 </span>
+                  <div class="p-create__hide">
+                    <input
+                      type="text"
+                      id="destination"
+                      name="destinationSearch"
+                      placeholder="例: 京都"
+                      class="p-create__input"
+                      autocomplete="off"
+                      data-destination-input
+                    />
+                    <ul
+                      class="p-create__suggestions"
+                      data-destination-suggestions
+                      hidden
+                    ></ul>
+                    <div
+                      class="p-create__selectedDestination"
+                      data-destination-selected
+                      hidden
+                    ></div>
+                  </div>
+                </label>
+                <label for="date">
+                  <span class="p-create__title">日程</span>
+                  <div class="p-create__hide">
+                    <input
+                      type="text"
+                      id="date"
+                      name="date"
+                      placeholder="旅行日程を選択"
+                      class="p-create__input"
+                    />
+                  </div>
+                </label>
+              </div>
+            </form>
+            <a href="/create/plan.html?new=1" class="c-button u-center u-mt-4em">
+              <span class="c-button__text"> しおりを作成する </span>
+              <span class="c-button__icon u-note"></span>
+            </a>
+          </div>
+        </div>
+      </section>
+      <!-- ./ create -->
+
+      <!-- follow us -->
+      <section class="l-follow">
+        <div class="l-inner">
+          <hgroup class="c-title__box">
+            <h3 class="c-title l-follow__title">Follow Us</h3>
+          </hgroup>
+          <ul class="l-follow__list">
+            <li class="l-follow__item">
+              <a href="" class="l-follow__link">
+                <img
+                  src="/src/assets/common/instagram-icon.svg"
+                  alt="インスタグラムロゴ"
+                />
+              </a>
+            </li>
+            <li class="l-follow__item">
+              <a href="" class="l-follow__link">
+                <img src="/src/assets/common/x-icon.png" alt="xロゴ" />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- ./ follow us -->
+    </main>
+
+    <!-- footer -->
+    <footer class="l-footer">
+      <div class="l-inner">
+        <div class="l-footer__topList">
+          <img src="/src/assets/common/logo.png" alt="Trip-compassロゴ" />
+          <nav class="l-footer__nav">
+            <ul class="l-footer__navList">
+              <li class="l-footer__navItem">
+                <a href="/" class="l-footer__navLink">ホーム</a>
+              </li>
+              <li class="l-footer__navItem">
+                <a href="/diagnosis" class="l-footer__navLink">旅先診断</a>
+              </li>
+              <li class="l-footer__navItem">
+                <a href="/create" class="l-footer__navLink">しおりを作成</a>
+              </li>
+              <li class="l-footer__navItem">
+                <a href="/itineraries" class="l-footer__navLink"
+                  >みんなのしおり</a
+                >
+              </li>
+              <li class="l-footer__navItem">
+                <a href="/my-itineraries" class="l-footer__navLink"
+                  >自分のしおり</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="l-footer__bottomList">
+          <p class="l-footer__copy">
+            <small>&copy; 2026 Trip Compass by Yuto Takabayashi.</small>
+          </p>
+          <nav class="l-footer__bottomNav">
+            <ul class="l-footer__bottomNavList">
+              <li class="l-footer__bottomNavItem">
+                <a href="/about" class="l-footer__bottomNavLink"
+                  >このサイトについて</a
+                >
+              </li>
+              <li class="l-footer__bottomNavItem">
+                <a href="/contact" class="l-footer__bottomNavLink"
+                  >お問い合わせ</a
+                >
+              </li>
+              <li class="l-footer__bottomNavItem">
+                <a href="/terms" class="l-footer__bottomNavLink">利用規約</a>
+              </li>
+              <li class="l-footer__bottomNavItem">
+                <a href="/privacy-policy" class="l-footer__bottomNavLink"
+                  >プライバシーポリシー</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </footer>
+    <!-- ./ footer -->
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
