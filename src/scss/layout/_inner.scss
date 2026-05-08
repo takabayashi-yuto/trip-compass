@@ -2,4 +2,8 @@
   max-width: 1080px;
   padding: 0 20px;
   margin: auto;
+
+  &--wide {
+    max-width: 1340px;
+  }
 }

@@ -17,7 +17,7 @@
     <main class="p-plan">
       <!-- plan -->
       <section class="p-plan">
-        <div class="l-inner">
+        <div class="l-inner l-inner--wide">
           <!-- ボタン -->
           <div class="p-plan__buttonBox">
             <a class="p-plan__buttonList" href="/">
@@ -185,14 +185,13 @@
                   </div>
                 </div>
                 <aside class="p-plan__mapSidebar" aria-label="地図">
-                  <iframe
-                    class="p-plan__map"
-                    data-plan-map
-                    title="旅行先の地図"
-                    src="https://www.openstreetmap.org/export/embed.html?bbox=135.6904%2C34.9589%2C135.8156%2C35.0436&amp;layer=mapnik&amp;marker=35.0116%2C135.7681"
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                  ></iframe>
+                  <div class="p-plan__mapFrame">
+                    <div
+                      class="p-plan__map"
+                      data-plan-map
+                      title="旅行先の地図"
+                    ></div>
+                  </div>
                 </aside>
               </div>
             </div>

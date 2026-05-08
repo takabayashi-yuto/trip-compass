@@ -486,6 +486,9 @@ th {
   padding: 0 20px;
   margin: auto;
 }
+.l-inner--wide {
+  max-width: 1340px;
+}
 
 .l-section {
   margin-top: 8em;
@@ -517,7 +520,7 @@ th {
 .l-sidebar {
   position: fixed;
   top: 7em;
-  left: max(20px, (100vw - 1080px) / 2 + 20px);
+  left: max(20px, (100vw - 1340px) / 2 + 20px);
   z-index: 10;
   width: 180px;
   max-height: calc(100vh - 11rem);
@@ -1252,7 +1255,7 @@ th {
   padding: 2em;
   left: 50%;
   transform: translateX(-50%);
-  max-width: 1040px;
+  max-width: 1340px;
   background-color: #faf6f0;
   z-index: 2;
 }
@@ -1437,7 +1440,7 @@ th {
 }
 .p-plan__dateArea {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(280px, 40rem);
+  grid-template-columns: 30% 1fr;
   gap: 3em;
   margin-top: 6em;
   padding-left: 3em;
@@ -1482,11 +1485,28 @@ th {
 }
 .p-plan__selectedSpot {
   display: grid;
-  gap: 0.2em;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1em;
   padding: 0.9em 1em;
   border: 1px solid rgba(0, 205, 104, 0.32);
   border-radius: 1rem;
   background-color: #fff;
+  cursor: grab;
+}
+.p-plan__selectedSpot.is-dragging {
+  opacity: 0.55;
+  cursor: grabbing;
+}
+.p-plan__selectedSpotNumber {
+  color: #00cd68;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.p-plan__selectedSpotContent {
+  display: grid;
+  gap: 0.2em;
 }
 .p-plan__selectedSpotName {
   color: #00cd68;
@@ -1494,9 +1514,22 @@ th {
   font-weight: 700;
 }
 .p-plan__selectedSpotMeta {
-  color: #777;
+  color: #6f7977;
   font-size: 1.2rem;
   line-height: 1.4;
+}
+.p-plan__selectedSpotDelete {
+  width: 1.8rem;
+  aspect-ratio: 1/1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.p-plan__selectedSpotDelete:focus-visible {
+  outline: 1px solid #00cd68;
+  outline-offset: 0.3rem;
 }
 .p-plan__spotSuggestions {
   position: absolute;
@@ -1529,10 +1562,10 @@ th {
   border-top: 1px solid #e2e2e2;
 }
 .p-plan__spotSuggestionName {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
 }
 .p-plan__spotSuggestionMeta {
-  color: #777;
+  color: #6f7977;
   font-size: 1.2rem;
   line-height: 1.4;
 }
@@ -1546,16 +1579,50 @@ th {
   position: sticky;
   top: 11rem;
 }
+.p-plan__mapFrame {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #e2e2e2;
+  border-radius: 1rem;
+  background-color: #eef3f0;
+}
 .p-plan__map {
   display: block;
   width: 100%;
   height: 36rem;
-  border: 1px solid #e2e2e2;
-  border-radius: 1rem;
+  border: 0;
   background-color: #eef3f0;
+}
+.p-plan__map .maplibregl-canvas {
+  filter: saturate(0.82) hue-rotate(345deg) brightness(1.08) contrast(0.92);
 }
 @media screen and (max-width: 767px) {
   .p-plan__map {
     height: 26rem;
   }
+}
+.p-plan__mapPin {
+  width: 2.8rem;
+  height: 2.8rem;
+  pointer-events: none;
+}
+.p-plan__mapPin::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 0.3rem solid #fff;
+  border-radius: 50% 50% 50% 0;
+  background-color: #e53935;
+  box-shadow: 0 0.4rem 1.4rem rgba(0, 0, 0, 0.32);
+  transform: rotate(-45deg);
+}
+.p-plan__mapPinText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #fff;
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1;
+  transform: translate(-50%, -50%) rotate(45deg);
 }/*# sourceMappingURL=style.css.map */
