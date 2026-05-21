@@ -57,5 +57,12 @@
         background-size: cover;
       }
     }
+
+    &.u-replay {
+      &::after {
+        background: url("/src/assets/common/replay-icon-white.svg") no-repeat;
+        background-size: cover;
+      }
+    }
   }
 }

@@ -151,7 +151,7 @@
                   <h3 class="c-column__title">ソウル2泊3日カフェ巡り旅</h3>
                   <div class="c-column__infoList">
                     <span class="c-column__date">2026.05.03 - 2026.05.05</span>
-                    <span class="c-column__public">非公開</span>
+                    <span class="c-column__public">非公開中</span>
                   </div>
                 </div>
                 <div class="c-column__iconBox">
@@ -189,7 +189,46 @@
               <span class="c-button__icon u-note"></span>
             </a>
           </div>
-          <ul class="c-column--04 p-top__itinerariesList">
+          <div class="c-sort" data-sort="public-trips" data-sort-order="desc">
+            <button
+              type="button"
+              class="c-sort__button"
+              data-sort-trigger
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-label="みんなのしおりの並び順を選択"
+            >
+              <span class="c-sort__buttonLabel" data-sort-current
+                >新しい順</span
+              >
+              <span class="c-sort__buttonIcon" aria-hidden="true">
+                <img src="/src/assets/common/arrow-bottom-black.svg" alt="" />
+              </span>
+            </button>
+            <div class="c-sort__menu" data-sort-menu hidden>
+              <button
+                type="button"
+                class="c-sort__option"
+                data-sort-option="desc"
+                aria-pressed="true"
+              >
+                新しい順
+              </button>
+              <button
+                type="button"
+                class="c-sort__option"
+                data-sort-option="likes_desc"
+                aria-pressed="false"
+              >
+                いいね数が多い順
+              </button>
+            </div>
+          </div>
+          <ul
+            class="c-column--04 p-top__itinerariesList"
+            data-public-trips
+            data-sort-list="public-trips"
+          >
             <li
               class="c-column__item"
               data-sort-item
@@ -246,266 +285,6 @@
                     />
                   </span>
                   <span class="c-column__icon u-delete" aria-hidden="true">
-                    <img
-                      src="/src/assets/common/delete-icon.svg"
-                      alt=""
-                      class="c-column__iconImage"
-                    />
-                  </span>
-                </div>
-              </a>
-            </li>
-            <li
-              class="c-column__item"
-              data-sort-item
-              data-sort-date="2026-07-18"
-            >
-              <a href="" class="c-column__link">
-                <img
-                  src="/src/assets/cities/taipei-edit.webp"
-                  class="c-column__image"
-                  alt="台北2泊3日グルメ旅"
-                />
-                <div class="c-column__textBox">
-                  <h3 class="c-column__title">台北2泊3日グルメ旅</h3>
-                  <div class="c-column__profileList">
-                    <span class="c-column__profile">
-                      <img src="/src/assets/cities/sapporo-edit.webp" alt="" />
-                    </span>
-                    <span class="c-column__date">2026.07.18 - 2026.07.20</span>
-                    <button
-                      type="button"
-                      class="c-like__button"
-                      data-like-button
-                      data-like-id="trip-taipei-gourmet"
-                      data-like-count="18"
-                      aria-label="台北2泊3日グルメ旅にいいねする"
-                    >
-                      <span class="c-like__icon" aria-hidden="true">
-                        <svg
-                          data-prefix="far"
-                          data-icon="heart"
-                          class="c-like__svg"
-                          role="img"
-                          viewBox="0 0 512 512"
-                          aria-hidden="true"
-                        >
-                          <path
-                            fill="currentColor"
-                            d="M378.9 80c-27.3 0-53 13.1-69 35.2l-34.4 47.6c-4.5 6.2-11.7 9.9-19.4 9.9s-14.9-3.7-19.4-9.9l-34.4-47.6c-16-22.1-41.7-35.2-69-35.2-47 0-85.1 38.1-85.1 85.1 0 49.9 32 98.4 68.1 142.3 41.1 50 91.4 94 125.9 120.3 3.2 2.4 7.9 4.2 14 4.2s10.8-1.8 14-4.2c34.5-26.3 84.8-70.4 125.9-120.3 36.2-43.9 68.1-92.4 68.1-142.3 0-47-38.1-85.1-85.1-85.1zM271 87.1c25-34.6 65.2-55.1 107.9-55.1 73.5 0 133.1 59.6 133.1 133.1 0 68.6-42.9 128.9-79.1 172.8-44.1 53.6-97.3 100.1-133.8 127.9-12.3 9.4-27.5 14.1-43.1 14.1s-30.8-4.7-43.1-14.1C176.4 438 123.2 391.5 79.1 338 42.9 294.1 0 233.7 0 165.1 0 91.6 59.6 32 133.1 32 175.8 32 216 52.5 241 87.1l15 20.7 15-20.7z"
-                          ></path>
-                        </svg>
-                      </span>
-                      <span class="c-like__count" data-like-count-display
-                        >18</span
-                      >
-                    </button>
-                  </div>
-                </div>
-                <div class="c-column__iconBox">
-                  <span class="c-column__icon" aria-hidden="true">
-                    <img
-                      src="/src/assets/common/share-icon.svg"
-                      alt=""
-                      class="c-column__iconImage"
-                    />
-                  </span>
-                  <span class="c-column__icon" aria-hidden="true">
-                    <img
-                      src="/src/assets/common/delete-icon.svg"
-                      alt=""
-                      class="c-column__iconImage"
-                    />
-                  </span>
-                </div>
-              </a>
-            </li>
-            <li
-              class="c-column__item"
-              data-sort-item
-              data-sort-date="2026-04-10"
-            >
-              <a href="" class="c-column__link">
-                <img
-                  src="/src/assets/cities/sapporo-edit.webp"
-                  class="c-column__image"
-                  alt="札幌"
-                />
-                <div class="c-column__textBox">
-                  <h3 class="c-column__title">札幌1泊2日温泉旅</h3>
-                  <div class="c-column__profileList">
-                    <span class="c-column__profile">
-                      <img src="/src/assets/cities/sapporo-edit.webp" alt="" />
-                    </span>
-                    <span class="c-column__date">2026.04.10 - 2026.04.11</span>
-                    <button
-                      type="button"
-                      class="c-like__button"
-                      data-like-button
-                      data-like-id="trip-sapporo-onsen"
-                      data-like-count="9"
-                      aria-label="札幌1泊2日温泉旅にいいねする"
-                    >
-                      <span class="c-like__icon" aria-hidden="true">
-                        <svg
-                          data-prefix="far"
-                          data-icon="heart"
-                          class="c-like__svg"
-                          role="img"
-                          viewBox="0 0 512 512"
-                          aria-hidden="true"
-                        >
-                          <path
-                            fill="currentColor"
-                            d="M378.9 80c-27.3 0-53 13.1-69 35.2l-34.4 47.6c-4.5 6.2-11.7 9.9-19.4 9.9s-14.9-3.7-19.4-9.9l-34.4-47.6c-16-22.1-41.7-35.2-69-35.2-47 0-85.1 38.1-85.1 85.1 0 49.9 32 98.4 68.1 142.3 41.1 50 91.4 94 125.9 120.3 3.2 2.4 7.9 4.2 14 4.2s10.8-1.8 14-4.2c34.5-26.3 84.8-70.4 125.9-120.3 36.2-43.9 68.1-92.4 68.1-142.3 0-47-38.1-85.1-85.1-85.1zM271 87.1c25-34.6 65.2-55.1 107.9-55.1 73.5 0 133.1 59.6 133.1 133.1 0 68.6-42.9 128.9-79.1 172.8-44.1 53.6-97.3 100.1-133.8 127.9-12.3 9.4-27.5 14.1-43.1 14.1s-30.8-4.7-43.1-14.1C176.4 438 123.2 391.5 79.1 338 42.9 294.1 0 233.7 0 165.1 0 91.6 59.6 32 133.1 32 175.8 32 216 52.5 241 87.1l15 20.7 15-20.7z"
-                          ></path>
-                        </svg>
-                      </span>
-                      <span class="c-like__count" data-like-count-display
-                        >9</span
-                      >
-                    </button>
-                  </div>
-                </div>
-                <div class="c-column__iconBox">
-                  <span class="c-column__icon" aria-hidden="true">
-                    <img
-                      src="/src/assets/common/share-icon.svg"
-                      alt=""
-                      class="c-column__iconImage"
-                    />
-                  </span>
-                  <span class="c-column__icon" aria-hidden="true">
-                    <img
-                      src="/src/assets/common/delete-icon.svg"
-                      alt=""
-                      class="c-column__iconImage"
-                    />
-                  </span>
-                </div>
-              </a>
-            </li>
-            <li
-              class="c-column__item"
-              data-sort-item
-              data-sort-date="2026-08-02"
-            >
-              <a href="" class="c-column__link">
-                <img
-                  src="/src/assets/cities/sapporo-edit.webp"
-                  class="c-column__image"
-                  alt="釜山3泊4日海辺ステイ"
-                />
-                <div class="c-column__textBox">
-                  <h3 class="c-column__title">釜山3泊4日海辺ステイ</h3>
-                  <div class="c-column__profileList">
-                    <span class="c-column__profile">
-                      <img src="/src/assets/cities/sapporo-edit.webp" alt="" />
-                    </span>
-                    <span class="c-column__date">2026.08.02 - 2026.08.05</span>
-                    <button
-                      type="button"
-                      class="c-like__button"
-                      data-like-button
-                      data-like-id="trip-busan-seaside"
-                      data-like-count="15"
-                      aria-label="釜山3泊4日海辺ステイにいいねする"
-                    >
-                      <span class="c-like__icon" aria-hidden="true">
-                        <svg
-                          data-prefix="far"
-                          data-icon="heart"
-                          class="c-like__svg"
-                          role="img"
-                          viewBox="0 0 512 512"
-                          aria-hidden="true"
-                        >
-                          <path
-                            fill="currentColor"
-                            d="M378.9 80c-27.3 0-53 13.1-69 35.2l-34.4 47.6c-4.5 6.2-11.7 9.9-19.4 9.9s-14.9-3.7-19.4-9.9l-34.4-47.6c-16-22.1-41.7-35.2-69-35.2-47 0-85.1 38.1-85.1 85.1 0 49.9 32 98.4 68.1 142.3 41.1 50 91.4 94 125.9 120.3 3.2 2.4 7.9 4.2 14 4.2s10.8-1.8 14-4.2c34.5-26.3 84.8-70.4 125.9-120.3 36.2-43.9 68.1-92.4 68.1-142.3 0-47-38.1-85.1-85.1-85.1zM271 87.1c25-34.6 65.2-55.1 107.9-55.1 73.5 0 133.1 59.6 133.1 133.1 0 68.6-42.9 128.9-79.1 172.8-44.1 53.6-97.3 100.1-133.8 127.9-12.3 9.4-27.5 14.1-43.1 14.1s-30.8-4.7-43.1-14.1C176.4 438 123.2 391.5 79.1 338 42.9 294.1 0 233.7 0 165.1 0 91.6 59.6 32 133.1 32 175.8 32 216 52.5 241 87.1l15 20.7 15-20.7z"
-                          ></path>
-                        </svg>
-                      </span>
-                      <span class="c-like__count" data-like-count-display
-                        >15</span
-                      >
-                    </button>
-                  </div>
-                </div>
-                <div class="c-column__iconBox">
-                  <span class="c-column__icon" aria-hidden="true">
-                    <img
-                      src="/src/assets/common/share-icon.svg"
-                      alt=""
-                      class="c-column__iconImage"
-                    />
-                  </span>
-                  <span class="c-column__icon" aria-hidden="true">
-                    <img
-                      src="/src/assets/common/delete-icon.svg"
-                      alt=""
-                      class="c-column__iconImage"
-                    />
-                  </span>
-                </div>
-              </a>
-            </li>
-            <li
-              class="c-column__item"
-              data-sort-item
-              data-sort-date="2026-06-11"
-            >
-              <a href="" class="c-column__link">
-                <img
-                  src="/src/assets/cities/sapporo-edit.webp"
-                  class="c-column__image"
-                  alt="福岡2泊3日屋台めぐり"
-                />
-                <div class="c-column__textBox">
-                  <h3 class="c-column__title">福岡2泊3日屋台めぐり</h3>
-                  <div class="c-column__profileList">
-                    <span class="c-column__profile">
-                      <img src="/src/assets/cities/sapporo-edit.webp" alt="" />
-                    </span>
-                    <span class="c-column__date">2026.06.11 - 2026.06.13</span>
-                    <button
-                      type="button"
-                      class="c-like__button"
-                      data-like-button
-                      data-like-id="trip-fukuoka-yatai"
-                      data-like-count="21"
-                      aria-label="福岡2泊3日屋台めぐりにいいねする"
-                    >
-                      <span class="c-like__icon" aria-hidden="true">
-                        <svg
-                          data-prefix="far"
-                          data-icon="heart"
-                          class="c-like__svg"
-                          role="img"
-                          viewBox="0 0 512 512"
-                          aria-hidden="true"
-                        >
-                          <path
-                            fill="currentColor"
-                            d="M378.9 80c-27.3 0-53 13.1-69 35.2l-34.4 47.6c-4.5 6.2-11.7 9.9-19.4 9.9s-14.9-3.7-19.4-9.9l-34.4-47.6c-16-22.1-41.7-35.2-69-35.2-47 0-85.1 38.1-85.1 85.1 0 49.9 32 98.4 68.1 142.3 41.1 50 91.4 94 125.9 120.3 3.2 2.4 7.9 4.2 14 4.2s10.8-1.8 14-4.2c34.5-26.3 84.8-70.4 125.9-120.3 36.2-43.9 68.1-92.4 68.1-142.3 0-47-38.1-85.1-85.1-85.1zM271 87.1c25-34.6 65.2-55.1 107.9-55.1 73.5 0 133.1 59.6 133.1 133.1 0 68.6-42.9 128.9-79.1 172.8-44.1 53.6-97.3 100.1-133.8 127.9-12.3 9.4-27.5 14.1-43.1 14.1s-30.8-4.7-43.1-14.1C176.4 438 123.2 391.5 79.1 338 42.9 294.1 0 233.7 0 165.1 0 91.6 59.6 32 133.1 32 175.8 32 216 52.5 241 87.1l15 20.7 15-20.7z"
-                          ></path>
-                        </svg>
-                      </span>
-                      <span class="c-like__count" data-like-count-display
-                        >21</span
-                      >
-                    </button>
-                  </div>
-                </div>
-                <div class="c-column__iconBox">
-                  <span class="c-column__icon" aria-hidden="true">
-                    <img
-                      src="/src/assets/common/share-icon.svg"
-                      alt=""
-                      class="c-column__iconImage"
-                    />
-                  </span>
-                  <span class="c-column__icon" aria-hidden="true">
                     <img
                       src="/src/assets/common/delete-icon.svg"
                       alt=""

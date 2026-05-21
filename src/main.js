@@ -7,3 +7,4 @@ import "./js/createDestinationInput.js";
 import "./js/createDatePicker.js";
 import "./js/planEditor.js";
 import "./js/planSpotSuggestion.js";
+import "./js/travel-diagnosis.js";

@@ -104,11 +104,13 @@
   }
 
   &__date {
+    flex-shrink: 0;
     color: $color-gray;
     font-weight: normal;
     font-family: $font-family-roboto;
     font-size: 1.3rem;
     line-height: 2;
+    white-space: nowrap;
   }
 
   &__public {
@@ -120,5 +122,21 @@
     border-radius: 1em;
     padding: 0 1em;
     font-size: 1.1rem;
+    cursor: pointer;
+    transition:
+      background-color 0.2s ease,
+      box-shadow 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      background-color: $color-green-hover;
+      box-shadow: 0 0 0 2px rgba(0, 205, 104, 0.18);
+      color: $color-green;
+    }
+
+    &:focus-visible {
+      outline: 2px solid rgba(0, 205, 104, 0.36);
+      outline-offset: 0.2rem;
+    }
   }
 }

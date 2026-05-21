@@ -3,6 +3,8 @@
 @use "../../foundation/mixin" as *;
 
 .p-plan {
+  padding-bottom: 10rem;
+
   &__buttonBox {
     display: flex;
     align-items: center;
@@ -13,7 +15,7 @@
     padding: 2em;
     left: 50%;
     transform: translateX(-50%);
-    max-width: 1340px;
+    max-width: 1080px;
     background-color: #faf6f0;
     z-index: 2;
   }
@@ -23,6 +25,58 @@
     justify-content: flex-end;
     gap: 2em;
     align-items: center;
+  }
+
+  &__selectWrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  &__select {
+    min-width: 10rem;
+    padding: 0.3em 2.6em 0.3em 0.8em;
+    border: 1px solid rgba(0, 205, 104, 0.32);
+    border-radius: 999px;
+    background-color: #fff;
+    color: transparent;
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.2;
+    cursor: pointer;
+    appearance: none;
+
+    &:hover,
+    &:focus-visible {
+      border-color: $color-green;
+      background-color: #f1fff7;
+    }
+
+    &:focus-visible {
+      outline: 2px solid rgba(0, 205, 104, 0.28);
+      outline-offset: 0.2rem;
+    }
+
+    option {
+      color: $color-green;
+    }
+  }
+
+  &__selectText {
+    position: absolute;
+    left: 0.8em;
+    color: $color-green;
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.2;
+    pointer-events: none;
+  }
+
+  &__selectIcon {
+    position: absolute;
+    right: 0.9em;
+    width: 1.5rem;
+    pointer-events: none;
   }
 
   &__button {
@@ -222,35 +276,458 @@
     font-size: 1.2rem;
   }
 
-  &__dateArea {
-    display: grid;
-    grid-template-columns: 30% 1fr;
-    gap: 3em;
+  &__dateArea,
+  &__belongings,
+  &__memo {
     margin-top: 6em;
     padding-left: 3em;
 
     @include sp {
-      grid-template-columns: 1fr;
-      gap: 2em;
       padding-left: 0;
     }
+  }
+
+  &__money {
+    padding-left: 3em;
+    margin-top: 3em;
+
+    @include sp {
+      padding-left: 0;
+    }
+  }
+
+  &__moneyTitle {
+    font-size: 2.2rem;
+    font-weight: bold;
+    line-height: 1.4;
+  }
+
+  &__moneyBody {
+    margin-top: 1.6em;
+  }
+
+  &__moneyList {
+    display: grid;
+    gap: 1em;
+  }
+
+  &__moneyItem {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 1em;
+    padding: 1em;
+    border: 1px solid rgba(0, 205, 104, 0.24);
+    border-radius: 1rem;
+    background-color: #fff;
+
+    @include sp {
+      grid-template-columns: auto minmax(0, 1fr);
+      align-items: flex-start;
+    }
+  }
+
+  &__moneyIcon {
+    width: 3.2rem;
+    aspect-ratio: 1 / 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #f1fff7;
+    flex-shrink: 0;
+
+    img {
+      width: 2rem;
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+    }
+  }
+
+  &__moneyContent {
+    display: grid;
+    gap: 0.35em;
+    min-width: 0;
+  }
+
+  &__moneyHead {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.45em;
+  }
+
+  &__moneyPurpose {
+    color: $color-green;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  &__moneyPlace {
+    min-width: 0;
+    color: #222;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+  }
+
+  &__moneyMeta,
+  &__moneyEmpty {
+    color: $color-gray;
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+
+  &__moneyAmount {
+    color: #222;
+    font-size: 1.5rem;
+    font-weight: bold;
+    white-space: nowrap;
+
+    @include sp {
+      grid-column: 2;
+      justify-self: flex-start;
+    }
+  }
+
+  &__moneyTotal {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.8em 1.4em;
+    margin-top: 1.2em;
+    padding: 1em;
+    border-top: 1px solid rgba(0, 205, 104, 0.24);
+  }
+
+  &__moneyTotalLabel {
+    color: $color-gray;
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+
+  &__moneyTotalList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.5em 1em;
+  }
+
+  &__moneyTotalAmount {
+    color: $color-green;
+    font-size: 1.8rem;
+    font-weight: bold;
+    white-space: nowrap;
   }
 
   &__date {
     min-width: 0;
   }
 
+  &__belongingsTabs {
+    margin-top: 3em;
+  }
+
+  &__belongingsTabList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8em;
+
+    @include sp {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding-bottom: 0.4em;
+    }
+  }
+
+  &__belongingsTab {
+    min-height: 4rem;
+    padding: 0.7em 1.2em;
+    border: 1px solid $color-border;
+    border-radius: 999px;
+    color: $color-gray;
+    background-color: #fff;
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.3;
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      color 0.2s ease;
+
+    &:hover,
+    &:focus-visible,
+    &.is-active {
+      border-color: $color-green;
+      color: #fff;
+      background-color: $color-green;
+    }
+
+    &:focus-visible {
+      outline: 2px solid rgba(0, 205, 104, 0.28);
+      outline-offset: 0.2rem;
+    }
+  }
+
+  &__belongingsPanels {
+    margin-top: 1.6em;
+  }
+
+  &__belongingsPanel {
+    padding: 1.6em;
+    border: 1px solid $color-border;
+    border-radius: 1.2rem;
+    background-color: #fff;
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  &__belongingsPanelTitle {
+    color: $color-green;
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
+
+  &__belongingsList {
+    display: grid;
+    gap: 0.8em;
+    margin-top: 1.2em;
+  }
+
+  &__belongingsAddForm {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.8em;
+    margin-top: 1.2em;
+  }
+
+  &__belongingsAddInput {
+    width: 100%;
+    min-width: 0;
+    padding: 0.8em 1em;
+    border: 1px solid $color-border;
+    border-radius: 0.8rem;
+    font-size: 1.5rem;
+    line-height: 1.5;
+
+    &::placeholder {
+      color: #ccc;
+    }
+
+    &:focus-visible {
+      outline: 1px solid $color-green;
+    }
+  }
+
+  &__belongingsAddButton {
+    min-width: 7.2rem;
+    padding: 0em 1.2em;
+    border-radius: 999px;
+    color: #fff;
+    background-color: $color-green;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.4;
+    cursor: pointer;
+
+    &:hover,
+    &:focus-visible {
+      opacity: 0.82;
+    }
+
+    &:focus-visible {
+      outline: 1px solid $color-green;
+      outline-offset: 0.2rem;
+    }
+  }
+
+  &__belongingsItem {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.8em;
+  }
+
+  &__belongingsCheck {
+    display: flex;
+    align-items: center;
+    gap: 0.8em;
+    padding: 0.9em 1em;
+    border: 1px solid $color-border;
+    border-radius: 0.8rem;
+    background-color: #fff;
+    cursor: pointer;
+  }
+
+  &__belongingsCheckbox {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+  }
+
+  &__belongingsCheckButton {
+    position: relative;
+    width: 2rem;
+    aspect-ratio: 1 / 1;
+    border: 2px solid $color-green;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background-color: #fff;
+  }
+
+  &__belongingsCheckButton::after {
+    content: "";
+    position: absolute;
+    top: 0.35rem;
+    left: 0.55rem;
+    width: 0.5rem;
+    height: 0.9rem;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    opacity: 0;
+    transform: rotate(45deg);
+  }
+
+  &__belongingsCheckText {
+    color: #222;
+    font-size: 1.5rem;
+    line-height: 1.5;
+  }
+
+  &__belongingsEditInput {
+    width: 100%;
+    min-width: 0;
+    padding: 0.2em 0.3em;
+    border: 1px solid $color-green;
+    border-radius: 0.4rem;
+    font-size: 1.5rem;
+    line-height: 1.5;
+
+    &:focus-visible {
+      outline: 2px solid rgba(0, 205, 104, 0.28);
+      outline-offset: 0.2rem;
+    }
+  }
+
+  &__belongingsCheckbox:focus-visible + &__belongingsCheckButton {
+    outline: 2px solid rgba(0, 205, 104, 0.28);
+    outline-offset: 0.2rem;
+  }
+
+  &__belongingsCheckbox:checked + &__belongingsCheckButton {
+    border-color: #9aa7a3;
+    background-color: #9aa7a3;
+  }
+
+  &__belongingsCheckbox:checked + &__belongingsCheckButton::after {
+    opacity: 1;
+  }
+
+  &__belongingsCheckbox:checked ~ &__belongingsCheckText {
+    color: #9aa7a3;
+    text-decoration: line-through;
+  }
+
+  &__belongingsActions {
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  &__belongingsAction {
+    width: 3.6rem;
+    aspect-ratio: 1 / 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $color-border;
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+
+    img {
+      width: 1.6rem;
+      aspect-ratio: 1 / 1;
+    }
+
+    &:hover,
+    &:focus-visible {
+      border-color: $color-green;
+      background-color: #f1fff7;
+    }
+
+    &:focus-visible {
+      outline: 2px solid rgba(0, 205, 104, 0.28);
+      outline-offset: 0.2rem;
+    }
+  }
+
   &__dateList {
     margin-top: 3em;
+    display: grid;
+    gap: 1.2em;
+  }
+
+  &__dateItem {
+    border: 1px solid $color-border;
+    border-radius: 1.2rem;
+    background-color: white;
+  }
+
+  &__dateSummary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2em;
+    padding: 1.4em 1.6em;
+    cursor: pointer;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
   }
 
   &__dateText {
     font-size: 1.6rem;
+    font-weight: 700;
+  }
+
+  &__dateToggle {
+    width: 1rem;
+    height: 1rem;
+    border-right: 2px solid $color-green;
+    border-bottom: 2px solid $color-green;
+    transform: rotate(45deg);
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  &__dateItem[open] &__dateToggle {
+    transform: rotate(225deg);
+  }
+
+  &__datePanel {
+    padding: 0 1.6em 1.6em;
+    border-top: 1px solid rgba(0, 205, 104, 0.12);
+  }
+
+  &__dateEmpty {
+    color: $color-gray;
+    font-size: 1.4rem;
   }
 
   &__dateRelative {
     position: relative;
-    margin-top: 1em;
+    margin-top: 1.2em;
 
     input {
       width: 100%;
@@ -290,6 +767,19 @@
       opacity: 0.55;
       cursor: grabbing;
     }
+
+    &.is-time-open {
+      z-index: 2;
+    }
+
+    &.is-cost-open {
+      z-index: 2;
+    }
+
+    &.has-image {
+      display: grid;
+      grid-template-columns: auto 1fr auto auto;
+    }
   }
 
   &__selectedSpotNumber {
@@ -300,8 +790,17 @@
   }
 
   &__selectedSpotContent {
+    position: relative;
     display: grid;
     gap: 0.2em;
+  }
+
+  &__selectedSpotImage {
+    width: 15rem;
+    aspect-ratio: 16 / 10;
+    border-radius: 0.8rem;
+    background-color: #f4f7f6;
+    object-fit: cover;
   }
 
   &__selectedSpotName {
@@ -316,14 +815,387 @@
     line-height: 1.4;
   }
 
+  &__selectedSpotActionRow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6em;
+    margin-top: 1em;
+  }
+
+  &__selectedSpotTimeButton {
+    width: fit-content;
+    padding: 0.4em 0.8em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
+    border-radius: 999px;
+    color: $color-gray;
+    border: 1px solid $color-border;
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 1.2;
+    cursor: pointer;
+
+    &:hover,
+    &:focus-visible {
+      background-color: #f1fff7;
+    }
+
+    &:focus-visible {
+      outline: 1px solid $color-green;
+      outline-offset: 0.2rem;
+    }
+
+    &.has-time {
+      border-color: $color-green;
+      color: #fff;
+      background-color: $color-green;
+    }
+  }
+
+  &__selectedSpotTimeButtonIcon {
+    width: 1.4rem;
+    aspect-ratio: 1 / 1;
+    flex-shrink: 0;
+  }
+
+  &__selectedSpotCostButton {
+    width: fit-content;
+    padding: 0.4em 0.8em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
+    border: 1px solid $color-border;
+    border-radius: 999px;
+    color: $color-gray;
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 1.2;
+    cursor: pointer;
+
+    &:hover,
+    &:focus-visible {
+      background-color: #f1fff7;
+    }
+
+    &:focus-visible {
+      outline: 1px solid $color-green;
+      outline-offset: 0.2rem;
+    }
+
+    &.has-cost {
+      border-color: $color-green;
+      color: #fff;
+      background-color: $color-green;
+    }
+  }
+
+  &__selectedSpotCostButtonIcon {
+    width: 1.4rem;
+    aspect-ratio: 1 / 1;
+    flex-shrink: 0;
+  }
+
+  &__selectedSpotCostPopup {
+    position: absolute;
+    z-index: 5;
+    top: calc(100% + 0.6rem);
+    left: 0;
+    width: min(30rem, 78vw);
+    display: grid;
+    gap: 0.9em;
+    padding: 1em;
+    border: 1px solid $color-border;
+    border-radius: 0.8rem;
+    background-color: #fff;
+    box-shadow: 0 0.8rem 2.4rem rgba(0, 0, 0, 0.14);
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  &__selectedSpotCostField {
+    display: grid;
+    gap: 0.35em;
+  }
+
+  &__selectedSpotCostLabel {
+    color: $color-gray;
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+
+  &__selectedSpotCostAmountControl {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 8.8rem;
+    gap: 0.6em;
+  }
+
+  &__selectedSpotCostInput,
+  &__selectedSpotCostCurrency,
+  &__selectedSpotCostPurpose {
+    width: 100%;
+    min-width: 0;
+    padding: 0.45em 0.55em;
+    border: 1px solid $color-border;
+    border-radius: 0.6rem;
+    font-size: 1.2rem;
+
+    &:focus-visible {
+      outline: 1px solid $color-green;
+    }
+  }
+
+  &__selectedSpotCostActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.6em;
+  }
+
+  &__selectedSpotCostAction {
+    padding: 0.4em 0.9em;
+    border-radius: 999px;
+    border: 1px solid $color-border;
+    font-size: 1.1rem;
+    font-weight: bold;
+    line-height: 1.2;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 1px solid $color-green;
+      outline-offset: 0.2rem;
+    }
+
+    &--cancel {
+      color: $color-gray;
+      background-color: #fff;
+    }
+
+    &--save {
+      border-color: $color-green;
+      color: #fff;
+      background-color: $color-green;
+    }
+  }
+
+  &__selectedLinkButton {
+    width: fit-content;
+    padding: 0.4em 0.8em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
+    border: 1px solid #e2e2e2;
+    border-radius: 999px;
+    color: #6f7977;
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 1.2;
+    cursor: pointer;
+
+    &:hover,
+    &:focus-visible {
+      background-color: #f1fff7;
+    }
+
+    &:focus-visible {
+      outline: 1px solid $color-green;
+      outline-offset: 0.2rem;
+    }
+
+    &.has-link {
+      border-color: $color-green;
+      color: #fff;
+      background-color: $color-green;
+    }
+  }
+
+  &__selectedLinkButtonIcon {
+    width: 1.4rem;
+    aspect-ratio: 1 / 1;
+    flex-shrink: 0;
+  }
+
+  &__selectedLinkPopup {
+    position: absolute;
+    z-index: 5;
+    top: calc(100% + 0.6rem);
+    left: 0;
+    width: min(34rem, 82vw);
+    display: grid;
+    gap: 0.9em;
+    padding: 1em;
+    border: 1px solid $color-border;
+    border-radius: 0.8rem;
+    background-color: #fff;
+    box-shadow: 0 0.8rem 2.4rem rgba(0, 0, 0, 0.14);
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  &__selectedLinkField {
+    display: grid;
+    gap: 0.35em;
+  }
+
+  &__selectedLinkLabel {
+    color: $color-gray;
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+
+  &__selectedLinkInput {
+    width: 100%;
+    min-width: 0;
+    padding: 0.45em 0.55em;
+    border: 1px solid $color-border;
+    border-radius: 0.6rem;
+    font-size: 1.2rem;
+
+    &:focus-visible {
+      outline: 1px solid $color-green;
+    }
+  }
+
+  &__selectedLinkOpen {
+    width: fit-content;
+    color: $color-green;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+
+    &[hidden] {
+      display: none;
+    }
+
+    &:focus-visible {
+      outline: 1px solid $color-green;
+      outline-offset: 0.2rem;
+    }
+  }
+
+  &__selectedLinkActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.6em;
+  }
+
+  &__selectedLinkAction {
+    padding: 0.4em 0.9em;
+    border-radius: 999px;
+    border: 1px solid $color-border;
+    font-size: 1.1rem;
+    font-weight: bold;
+    line-height: 1.2;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 1px solid $color-green;
+      outline-offset: 0.2rem;
+    }
+
+    &--cancel {
+      color: $color-gray;
+      background-color: #fff;
+    }
+
+    &--save {
+      border-color: $color-green;
+      color: #fff;
+      background-color: $color-green;
+    }
+  }
+
+  &__selectedSpotTimePopup {
+    position: absolute;
+    z-index: 5;
+    top: calc(100% + 0.6rem);
+    left: 0;
+    width: min(24rem, 70vw);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8em;
+    padding: 1em;
+    border: 1px solid $color-border;
+    border-radius: 0.8rem;
+    background-color: #fff;
+    box-shadow: 0 0.8rem 2.4rem rgba(0, 0, 0, 0.14);
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  &__selectedSpotTimeField {
+    display: grid;
+    gap: 0.35em;
+  }
+
+  &__selectedSpotTimeLabel {
+    color: $color-gray;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  &__selectedSpotTimeInput {
+    width: 100%;
+    min-width: 0;
+    padding: 0.45em 0.55em;
+    border: 1px solid $color-border;
+    border-radius: 0.6rem;
+    font-size: 1.2rem;
+
+    &:focus-visible {
+      outline: 1px solid $color-green;
+    }
+  }
+
+  &__selectedSpotTimeActions {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    gap: 0.6em;
+  }
+
+  &__selectedSpotTimeAction {
+    padding: 0.4em 0.9em;
+    border-radius: 999px;
+    border: 1px solid $color-border;
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 1.2;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 1px solid $color-green;
+      outline-offset: 0.2rem;
+    }
+
+    &--cancel {
+      color: $color-gray;
+      background-color: #fff;
+    }
+
+    &--save {
+      border-color: $color-green;
+      color: #fff;
+      background-color: $color-green;
+    }
+  }
+
   &__selectedSpotDelete {
-    width: 1.8rem;
+    width: 2rem;
     aspect-ratio: 1 / 1;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
     cursor: pointer;
+    margin-left: auto;
 
     &:focus-visible {
       outline: 1px solid $color-green;
@@ -384,60 +1256,32 @@
     left: 1em;
   }
 
-  &__mapSidebar {
-    position: sticky;
-    top: 11rem;
-  }
-
-  &__mapFrame {
-    position: relative;
-    overflow: hidden;
+  &__memoSection {
+    padding: 1.6em;
+    background-color: white;
+    margin-top: 3em;
+    border-radius: 1.2rem;
     border: 1px solid $color-border;
-    border-radius: 1rem;
-    background-color: #eef3f0;
   }
 
-  &__map {
-    display: block;
+  &__textarea {
     width: 100%;
-    height: 36rem;
-    border: 0;
-    background-color: #eef3f0;
+    min-height: 160px;
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    font-size: 1.6rem;
+    line-height: 1.7;
+    resize: vertical;
 
-    .maplibregl-canvas {
-      filter: saturate(0.82) hue-rotate(345deg) brightness(1.08) contrast(0.92);
+    &::placeholder {
+      color: #aaa;
     }
 
-    @include sp {
-      height: 26rem;
+    &:focus {
+      outline: none;
+      border-color: #2e8b57;
+      box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.15);
     }
-  }
-
-  &__mapPin {
-    width: 2.8rem;
-    height: 2.8rem;
-    pointer-events: none;
-
-    &::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border: 0.3rem solid #fff;
-      border-radius: 50% 50% 50% 0;
-      background-color: #e53935;
-      box-shadow: 0 0.4rem 1.4rem rgba(0, 0, 0, 0.32);
-      transform: rotate(-45deg);
-    }
-  }
-
-  &__mapPinText {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    color: #fff;
-    font-size: 1.45rem;
-    font-weight: 700;
-    line-height: 1;
-    transform: translate(-50%, -50%) rotate(45deg);
   }
 }

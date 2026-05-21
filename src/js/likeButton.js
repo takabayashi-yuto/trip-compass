@@ -1,5 +1,6 @@
 const LIKE_STATUS_STORAGE_KEY = "trip-compass-liked-items";
 const LIKE_COUNT_STORAGE_KEY = "trip-compass-like-counts";
+const LIKE_BUTTONS_UPDATED_EVENT = "trip-compass:likes-updated";
 
 // localStorage から JSON を安全に読み込む。
 const readStorage = (key) => {
@@ -43,12 +44,18 @@ const renderLikeButton = (button, count, liked) => {
 
 // 個別のいいねボタンに状態復元とクリック時の増減処理を設定する。
 const setupLikeButton = (button) => {
+  if (button.dataset.likeInitialized === "true") {
+    return;
+  }
+
   const likeId = button.dataset.likeId;
   const initialCount = Number.parseInt(button.dataset.likeCount ?? "0", 10);
 
   if (!likeId || Number.isNaN(initialCount)) {
     return;
   }
+
+  button.dataset.likeInitialized = "true";
 
   const label = button.getAttribute("aria-label")?.replace(/にいいねする$/, "");
 
@@ -80,6 +87,14 @@ const setupLikeButton = (button) => {
     writeStorage(LIKE_STATUS_STORAGE_KEY, likedItems);
     writeStorage(LIKE_COUNT_STORAGE_KEY, likeCounts);
     renderLikeButton(button, count, liked);
+    window.dispatchEvent(
+      new CustomEvent(LIKE_BUTTONS_UPDATED_EVENT, {
+        detail: {
+          count,
+          likeId,
+        },
+      }),
+    );
   });
 };
 
@@ -101,3 +116,5 @@ if (document.readyState === "loading") {
 } else {
   initLikeButtons();
 }
+
+window.addEventListener(LIKE_BUTTONS_UPDATED_EVENT, initLikeButtons);

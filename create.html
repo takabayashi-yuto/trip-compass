@@ -99,9 +99,27 @@
                     />
                   </div>
                 </label>
+                <label class="p-create__publish" for="isPublic">
+                  <input
+                    type="checkbox"
+                    id="isPublic"
+                    name="isPublic"
+                    value="1"
+                    class="p-create__publishInput"
+                    data-create-public
+                  />
+                  <span
+                    class="p-create__publishCheck"
+                    aria-hidden="true"
+                  ></span>
+                  <span class="p-create__publishText">しおりを公開する</span>
+                </label>
               </div>
             </form>
-            <a href="/create/plan.html?new=1" class="c-button u-center u-mt-4em">
+            <a
+              href="/create/plan.html?new=1"
+              class="c-button u-center u-mt-4em"
+            >
               <span class="c-button__text"> しおりを作成する </span>
               <span class="c-button__icon u-note"></span>
             </a>

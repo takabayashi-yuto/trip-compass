@@ -19,7 +19,7 @@
       gap: 1em;
     }
 
-    input {
+    input:not([type="checkbox"]) {
       font-size: 1.6rem;
       width: 100%;
       border-radius: 1rem;
@@ -38,6 +38,15 @@
         outline-color: $color-green;
       }
     }
+
+    .p-create__publish {
+      display: inline-flex;
+      width: fit-content;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.8em;
+      cursor: pointer;
+    }
   }
 
   &__title {
@@ -47,6 +56,55 @@
 
   &__hide {
     position: relative;
+  }
+
+  &__publishInput {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+  }
+
+  &__publishCheck {
+    position: relative;
+    width: 2rem;
+    aspect-ratio: 1 / 1;
+    flex-shrink: 0;
+    border: 2px solid $color-green;
+    border-radius: 0.4rem;
+    background-color: #fff;
+  }
+
+  &__publishCheck::after {
+    content: "";
+    position: absolute;
+    top: 0.2rem;
+    left: 0.55rem;
+    width: 0.5rem;
+    height: 1rem;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    opacity: 0;
+    transform: rotate(45deg);
+  }
+
+  &__publishText {
+    color: #222;
+    font-size: 1.5rem;
+    line-height: 1.5;
+  }
+
+  &__publishInput:focus-visible + &__publishCheck {
+    outline: 2px solid rgba(0, 205, 104, 0.28);
+    outline-offset: 0.2rem;
+  }
+
+  &__publishInput:checked + &__publishCheck {
+    background-color: $color-green;
+  }
+
+  &__publishInput:checked + &__publishCheck::after {
+    opacity: 1;
   }
 
   &__suggestions {

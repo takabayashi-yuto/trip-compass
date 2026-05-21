@@ -95,6 +95,12 @@
     margin-top: 6em;
   }
 
+  &__itinerariesSort {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 2rem;
+  }
+
   &__itinerariesList {
     margin-top: 2.4em;
   }

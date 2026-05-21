@@ -3,6 +3,9 @@
 .l-header {
   background-color: #f6f6f6;
   height: 80px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 
   &__inner {
     display: flex;

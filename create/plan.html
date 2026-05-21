@@ -17,7 +17,7 @@
     <main class="p-plan">
       <!-- plan -->
       <section class="p-plan">
-        <div class="l-inner l-inner--wide">
+        <div class="l-inner">
           <!-- ボタン -->
           <div class="p-plan__buttonBox">
             <a class="p-plan__buttonList" href="/">
@@ -26,11 +26,32 @@
               </span>
             </a>
             <div class="p-plan__buttonList">
+              <span class="p-plan__selectWrap">
+                <select
+                  name="isPublic"
+                  id="plan-public"
+                  class="p-plan__select"
+                  aria-label="公開設定"
+                  data-plan-public-select
+                >
+                  <option value="1">公開</option>
+                  <option value="0">非公開</option>
+                </select>
+                <span class="p-plan__selectText" data-plan-public-select-text>
+                  公開中
+                </span>
+                <img
+                  src="/src/assets/common/arrow-bottom-black.svg"
+                  alt=""
+                  class="p-plan__selectIcon"
+                  aria-hidden="true"
+                />
+              </span>
               <button class="p-plan__button u-share">
+                共有
                 <span>
                   <img src="/src/assets/common/share-icon.svg" />
                 </span>
-                共有
               </button>
               <button
                 class="p-plan__button"
@@ -61,17 +82,34 @@
               <div class="l-sidebar__list">
                 <div class="l-sidebar__item">
                   <button
-                    class="l-sidebar__button"
+                    class="l-sidebar__button is-active"
                     type="button"
+                    aria-current="true"
                     data-plan-scroll-target=".p-plan__kv"
                   >
                     基本情報
                   </button>
-                  <button class="l-sidebar__button" type="button">日程</button>
-                  <button class="l-sidebar__button" type="button">
+                  <button
+                    class="l-sidebar__button"
+                    type="button"
+                    data-plan-scroll-target=".p-plan__dateArea"
+                  >
+                    日程
+                  </button>
+                  <button
+                    class="l-sidebar__button"
+                    type="button"
+                    data-plan-scroll-target=".p-plan__belongings"
+                  >
                     持ち物
                   </button>
-                  <button class="l-sidebar__button" type="button">メモ</button>
+                  <button
+                    class="l-sidebar__button"
+                    type="button"
+                    data-plan-scroll-target=".p-plan__memo"
+                  >
+                    メモ
+                  </button>
                 </div>
               </div>
             </div>
@@ -154,45 +192,196 @@
                 </div>
               </div>
 
+              <!-- date -->
               <div class="p-plan__dateArea">
                 <!-- 日程 -->
                 <div class="p-plan__date">
                   <hgroup class="c-title__box">
                     <h3 class="c-title">日程</h3>
                   </hgroup>
-                  <div class="p-plan__dateList">
-                    <div class="p-plan__dateItem">
-                      <span class="p-plan__dateText">2026/05/19（水）</span>
-                      <div class="p-plan__dateRelative">
-                        <input
-                          type="text"
-                          placeholder="スポットを追加"
-                          autocomplete="off"
-                          aria-autocomplete="list"
-                          aria-expanded="false"
-                          data-plan-spot-input
-                        />
-                        <ul
-                          class="p-plan__spotSuggestions"
-                          data-plan-spot-suggestions
-                          hidden
-                        ></ul>
-                        <div class="p-plan__dateIcon">
-                          <img src="/src/assets/common/pin-icon-green.svg" />
-                        </div>
-                      </div>
-                    </div>
+                  <div class="p-plan__dateList"></div>
+                </div>
+              </div>
+
+              <!-- 合計費用 -->
+              <div class="p-plan__money">
+                <hgroup class="c-title__box">
+                  <h3 class="p-plan__moneyTitle">費用</h3>
+                </hgroup>
+                <div class="p-plan__moneyBody" data-plan-money></div>
+              </div>
+
+              <!-- 持ち物 -->
+              <div class="p-plan__belongings">
+                <hgroup class="c-title__box">
+                  <h3 class="c-title">持ち物</h3>
+                </hgroup>
+                <div class="p-plan__belongingsTabs" data-belongings-tabs>
+                  <div
+                    class="p-plan__belongingsTabList"
+                    role="tablist"
+                    aria-label="持ち物カテゴリー"
+                  >
+                    <button
+                      class="p-plan__belongingsTab is-active"
+                      type="button"
+                      role="tab"
+                      id="belongings-tab-essentials"
+                      aria-selected="true"
+                      aria-controls="belongings-panel-essentials"
+                      data-belongings-tab="essentials"
+                    >
+                      貴重品
+                    </button>
+                    <button
+                      class="p-plan__belongingsTab"
+                      type="button"
+                      role="tab"
+                      id="belongings-tab-clothes"
+                      aria-selected="false"
+                      aria-controls="belongings-panel-clothes"
+                      tabindex="-1"
+                      data-belongings-tab="clothes"
+                    >
+                      衣類
+                    </button>
+                    <button
+                      class="p-plan__belongingsTab"
+                      type="button"
+                      role="tab"
+                      id="belongings-tab-electronics"
+                      aria-selected="false"
+                      aria-controls="belongings-panel-electronics"
+                      tabindex="-1"
+                      data-belongings-tab="electronics"
+                    >
+                      電子機器
+                    </button>
+                    <button
+                      class="p-plan__belongingsTab"
+                      type="button"
+                      role="tab"
+                      id="belongings-tab-daily"
+                      aria-selected="false"
+                      aria-controls="belongings-panel-daily"
+                      tabindex="-1"
+                      data-belongings-tab="daily"
+                    >
+                      日用品・衛生用品
+                    </button>
+                    <button
+                      class="p-plan__belongingsTab"
+                      type="button"
+                      role="tab"
+                      id="belongings-tab-skincare"
+                      aria-selected="false"
+                      aria-controls="belongings-panel-skincare"
+                      tabindex="-1"
+                      data-belongings-tab="skincare"
+                    >
+                      洗面・スキンケア
+                    </button>
+                    <button
+                      class="p-plan__belongingsTab"
+                      type="button"
+                      role="tab"
+                      id="belongings-tab-useful"
+                      aria-selected="false"
+                      aria-controls="belongings-panel-useful"
+                      tabindex="-1"
+                      data-belongings-tab="useful"
+                    >
+                      あったら便利
+                    </button>
+                  </div>
+                  <div class="p-plan__belongingsPanels">
+                    <section
+                      class="p-plan__belongingsPanel is-active"
+                      id="belongings-panel-essentials"
+                      role="tabpanel"
+                      aria-labelledby="belongings-tab-essentials"
+                      data-belongings-panel="essentials"
+                    >
+                      <p class="p-plan__belongingsPanelTitle">貴重品</p>
+                      <ul class="p-plan__belongingsList"></ul>
+                    </section>
+                    <section
+                      class="p-plan__belongingsPanel"
+                      id="belongings-panel-clothes"
+                      role="tabpanel"
+                      aria-labelledby="belongings-tab-clothes"
+                      data-belongings-panel="clothes"
+                      hidden
+                    >
+                      <p class="p-plan__belongingsPanelTitle">衣類</p>
+                      <ul class="p-plan__belongingsList"></ul>
+                    </section>
+                    <section
+                      class="p-plan__belongingsPanel"
+                      id="belongings-panel-electronics"
+                      role="tabpanel"
+                      aria-labelledby="belongings-tab-electronics"
+                      data-belongings-panel="electronics"
+                      hidden
+                    >
+                      <p class="p-plan__belongingsPanelTitle">電子機器</p>
+                      <ul class="p-plan__belongingsList"></ul>
+                    </section>
+                    <section
+                      class="p-plan__belongingsPanel"
+                      id="belongings-panel-daily"
+                      role="tabpanel"
+                      aria-labelledby="belongings-tab-daily"
+                      data-belongings-panel="daily"
+                      hidden
+                    >
+                      <p class="p-plan__belongingsPanelTitle">
+                        日用品・衛生用品
+                      </p>
+                      <ul class="p-plan__belongingsList"></ul>
+                    </section>
+                    <section
+                      class="p-plan__belongingsPanel"
+                      id="belongings-panel-skincare"
+                      role="tabpanel"
+                      aria-labelledby="belongings-tab-skincare"
+                      data-belongings-panel="skincare"
+                      hidden
+                    >
+                      <p class="p-plan__belongingsPanelTitle">
+                        洗面・スキンケア
+                      </p>
+                      <ul class="p-plan__belongingsList"></ul>
+                    </section>
+                    <section
+                      class="p-plan__belongingsPanel"
+                      id="belongings-panel-useful"
+                      role="tabpanel"
+                      aria-labelledby="belongings-tab-useful"
+                      data-belongings-panel="useful"
+                      hidden
+                    >
+                      <p class="p-plan__belongingsPanelTitle">あったら便利</p>
+                      <ul class="p-plan__belongingsList"></ul>
+                    </section>
                   </div>
                 </div>
-                <aside class="p-plan__mapSidebar" aria-label="地図">
-                  <div class="p-plan__mapFrame">
-                    <div
-                      class="p-plan__map"
-                      data-plan-map
-                      title="旅行先の地図"
-                    ></div>
-                  </div>
-                </aside>
+              </div>
+
+              <!-- メモ -->
+              <div class="p-plan__memo">
+                <hgroup class="c-title__box">
+                  <h3 class="c-title">メモ</h3>
+                </hgroup>
+                <section class="p-plan__memoSection">
+                  <textarea
+                    id="tripMemo"
+                    class="p-plan__textarea"
+                    name="memo"
+                    placeholder="メモ欄"
+                    rows="6"
+                  ></textarea>
+                </section>
               </div>
             </div>
           </div>

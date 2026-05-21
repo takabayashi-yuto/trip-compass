@@ -1,6 +1,7 @@
 const SORT_LABELS = {
   desc: "新しい順",
   asc: "古い順",
+  likes_desc: "いいね数が多い順",
 };
 
 // 並び替えメニューを閉じ、アクセシビリティ状態も更新する。
@@ -35,9 +36,19 @@ const openDropdown = (root) => {
   menu.hidden = false;
 };
 
-// data-sort-date の日時を使って一覧アイテムを昇順・降順に並べる。
+// data-sort-date または data-sort-like を使って一覧アイテムを並べる。
 const getSortedItems = (items, order) => {
   return [...items].sort((left, right) => {
+    if (order === "likes_desc") {
+      const leftLikes = Number.parseInt(left.dataset.sortLike ?? "0", 10);
+      const rightLikes = Number.parseInt(right.dataset.sortLike ?? "0", 10);
+      const likeDiff = rightLikes - leftLikes;
+
+      if (likeDiff !== 0) {
+        return likeDiff;
+      }
+    }
+
     const leftTime = new Date(left.dataset.sortDate ?? "").getTime();
     const rightTime = new Date(right.dataset.sortDate ?? "").getTime();
 
@@ -102,7 +113,7 @@ const setupSort = (root) => {
     closeDropdown(root);
   };
 
-  applySort(root.dataset.sortOrder === "asc" ? "asc" : "desc");
+  applySort(root.dataset.sortOrder || "desc");
 
   trigger.addEventListener("click", () => {
     const isExpanded = trigger.getAttribute("aria-expanded") === "true";
@@ -121,7 +132,7 @@ const setupSort = (root) => {
     }
 
     option.addEventListener("click", () => {
-      const nextOrder = option.dataset.sortOption === "asc" ? "asc" : "desc";
+      const nextOrder = option.dataset.sortOption || "desc";
       applySort(nextOrder);
     });
   });

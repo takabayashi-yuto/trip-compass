@@ -20,11 +20,13 @@
 @use "./object/component/breadcrumb";
 @use "./object/component/sort";
 @use "./object/component/deleteModal";
+@use "./object/component/select";
 @use "./object/component/shareModal";
 
 @use "./object/project/top";
 @use "./object/project/diagnosis";
 @use "./object/project/create";
 @use "./object/project/plan";
+@use "./object/project/question";
 
 @use "./object/utility/display";

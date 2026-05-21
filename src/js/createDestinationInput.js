@@ -93,6 +93,21 @@ const getPlanFromUrl = () => {
   );
 };
 
+// 診断結果などから渡された URL パラメータを、初期選択の旅行先に変換する。
+const getDestinationFromCreateUrl = () => {
+  const params = new URLSearchParams(window.location.search);
+  const destinationValue =
+    params.get("destination") ||
+    params.get("destinationId") ||
+    params.get("city");
+
+  if (!destinationValue) {
+    return null;
+  }
+
+  return findDestinationSuggestions(destinationValue, 1)[0] || null;
+};
+
 // 編集中しおりまたは新規作成中の保存値から現在の旅行先を取得する。
 const getActivePlanDestinations = () => {
   const plan = getPlanFromUrl();
@@ -201,8 +216,10 @@ const setupCreateDestinationInput = () => {
   }
 
   clearStoredCreatePlanDestinations();
-  let selectedDestinations = [];
+  const initialDestination = getDestinationFromCreateUrl();
+  let selectedDestinations = initialDestination ? [initialDestination] : [];
 
+  setStoredCreatePlanDestinations(selectedDestinations);
   renderSelectedDestinations(selected, selectedDestinations);
 
   const updateSuggestions = () => {

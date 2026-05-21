@@ -1,0 +1,36 @@
+@use "../../foundation/function" as *;
+@use "../../foundation/mixin" as *;
+@use "../../foundation/setting" as *;
+
+.c-select {
+  min-width: 18rem;
+  padding: 0.6em 1.5em;
+  border: 1px solid rgba(0, 205, 104, 0.32);
+  border-radius: 999px;
+  background-color: #fff;
+  background-image: url("/src/assets/common/arrow-bottom-black.svg");
+  background-repeat: no-repeat;
+  background-position: right 1.2rem center;
+  background-size: 1.2rem;
+  color: $color-black;
+  cursor: pointer;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.2;
+  appearance: none;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    border-color: $color-green;
+    background-color: #f1fff7;
+  }
+
+  &:focus-visible {
+    outline: 2px solid rgba(0, 205, 104, 0.28);
+    outline-offset: 0.2rem;
+  }
+}
