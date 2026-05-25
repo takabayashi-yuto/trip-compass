@@ -9,6 +9,8 @@ export default defineConfig({
         auth: resolve(__dirname, "auth.html"),
         create: resolve(__dirname, "create.html"),
         diagnosis: resolve(__dirname, "diagnosis.html"),
+        plan: resolve(__dirname, "create/plan.html"),
+        question: resolve(__dirname, "diagnosis/question.html"),
       },
     },
   },
