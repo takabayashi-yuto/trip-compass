@@ -55,66 +55,60 @@
 
     <main class="p-auth">
       <section class="l-section">
-        <div class="l-inner u-narr">
+        <div class="l-inner u-narrow">
           <hgroup class="c-title__box u-ta-center">
             <h2 class="c-title u-ta-center">ログイン／新規登録</h2>
           </hgroup>
-          <div class="p-auth__tabs" role="tablist" aria-label="認証フォーム">
-            <div class="p-auth__card-switch">
-              <label class="p-auth__switch">
-                <input type="checkbox" class="p-auth__toggle" />
-                <span class="p-auth__slider"></span>
-                <span class="p-auth__card__side"></span>
-                <div class="p-auth__flip-card__inner">
-                  <div class="p-auth__flip-card__front">
-                    <div class="p-auth__title">ログイン</div>
-                    <form class="p-auth__flip-card__form" action="">
-                      <input
-                        class="p-auth__flip-card__input"
-                        name="email"
-                        placeholder="Email"
-                        type="email"
-                      />
-                      <input
-                        class="p-auth__flip-card__input"
-                        name="password"
-                        placeholder="Password"
-                        type="password"
-                      />
-                      <button class="p-auth__flip-card__btn">ログイン</button>
-                    </form>
-                  </div>
-                  <div class="p-auth__flip-card__back">
-                    <div class="p-auth__title">新規登録</div>
-                    <form class="p-auth__flip-card__form" action="">
-                      <input
-                        class="p-auth__flip-card__input"
-                        name="email"
-                        placeholder="Email"
-                        type="email"
-                      />
-                      <input
-                        class="p-auth__flip-card__input"
-                        name="password"
-                        placeholder="Password"
-                        type="password"
-                      />
-                      <button class="p-auth__flip-card__btn">新規登録</button>
-                    </form>
-                  </div>
-                </div>
+
+          <form action="" method="post" class="p-auth__form">
+            <div class="p-auth__fieldList">
+              <label for="username" class="p-auth__field">
+                <span class="p-auth__label">ユーザー名</span>
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  class="p-auth__input"
+                  placeholder="例: trip_taro"
+                  autocomplete="username"
+                  required
+                />
+              </label>
+              <label for="email" class="p-auth__field">
+                <span class="p-auth__label">メールアドレス</span>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="p-auth__input"
+                  placeholder="例: taro@example.com"
+                  autocomplete="email"
+                  required
+                />
+              </label>
+              <label for="password" class="p-auth__field">
+                <span class="p-auth__label">パスワード</span>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  class="p-auth__input"
+                  placeholder="パスワードを入力"
+                  autocomplete="new-password"
+                  required
+                />
               </label>
             </div>
-          </div>
+            <button type="submit" class="p-auth__button">新規登録する</button>
+          </form>
 
           <p class="p-auth__note">
-            アカウントをお持ちでない方は、<a href="">新規登録</a
-            >から始められます。
+            ユーザー名、メールアドレス、パスワードはすべて入力必須です。
           </p>
         </div>
       </section>
 
-      <!-- follow us -->
+      <!-- follow us
       <section class="l-follow">
         <div class="l-inner">
           <hgroup class="c-title__box">
@@ -137,7 +131,7 @@
           </ul>
         </div>
       </section>
-      <!-- ./ follow us -->
+      follow us -->
     </main>
 
     <!-- footer -->
