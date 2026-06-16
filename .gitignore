@@ -17,8 +17,9 @@ dist-ssr
 .env
 .env.local
 .env.*.local
-node_modules
-dist
+.env.production
+.env.development
+EOF
 !.vscode/extensions.json
 .idea
 .DS_Store
