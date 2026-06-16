@@ -57,28 +57,11 @@
       <section class="l-section">
         <div class="l-inner u-narrow">
           <hgroup class="c-title__box u-ta-center">
-            <h2 class="c-title u-ta-center">新規登録</h2>
+            <h2 class="c-title u-ta-center">ログイン</h2>
           </hgroup>
 
-          <form action="" method="post" class="p-auth__form" data-auth-form data-auth-mode="signup">
+          <form action="" method="post" class="p-auth__form" data-auth-form data-auth-mode="login">
             <div class="p-auth__fieldList">
-              <label for="username" class="p-auth__field">
-                <span class="p-auth__label"
-                  >ユーザー名
-                  <span class="p-auth__required">必須</span>
-                </span>
-                <input
-                  type="text"
-                  id="username"
-                  name="username"
-                  class="p-auth__input"
-                  placeholder="例: trip_taro"
-                  autocomplete="username"
-                  minlength="2"
-                  maxlength="40"
-                  required
-                />
-              </label>
               <label for="email" class="p-auth__field">
                 <span class="p-auth__label"
                   >メールアドレス
@@ -104,18 +87,18 @@
                   id="password"
                   name="password"
                   class="p-auth__input"
-                  placeholder="8文字以上で入力"
-                  autocomplete="new-password"
+                  placeholder="パスワードを入力"
+                  autocomplete="current-password"
                   minlength="8"
                   required
                 />
               </label>
             </div>
             <p class="p-auth__message" data-auth-message hidden></p>
-            <button type="submit" class="p-auth__button">新規登録する</button>
+            <button type="submit" class="p-auth__button">ログインする</button>
             <p class="p-auth__required-text">
-              すでにアカウントをお持ちの方は
-              <a href="/login" class="p-auth__login-link">こちらからログイン</a>
+              アカウントをお持ちでない方は
+              <a href="/auth" class="p-auth__login-link">新規登録はこちら</a>
             </p>
           </form>
         </div>

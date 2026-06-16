@@ -7,6 +7,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, "index.html"),
         auth: resolve(__dirname, "auth.html"),
+        login: resolve(__dirname, "login.html"),
         create: resolve(__dirname, "create.html"),
         diagnosis: resolve(__dirname, "diagnosis.html"),
         plan: resolve(__dirname, "create/plan.html"),

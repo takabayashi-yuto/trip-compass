@@ -8,4 +8,4 @@ import "./js/createDatePicker.js";
 import "./js/planEditor.js";
 import "./js/planSpotSuggestion.js";
 import "./js/travel-diagnosis.js";
-import "./js/authTabs.js";
+import "./js/authForms.js";

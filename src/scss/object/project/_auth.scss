@@ -23,6 +23,25 @@
     gap: 1rem;
   }
 
+  &__required {
+    color: white;
+    font-size: 1.2rem;
+    background-color: $color-red;
+    padding: 0.2em 1em;
+    margin-left: 1em;
+    border-radius: 1em;
+  }
+
+  &__required-text {
+    font-size: rem(15);
+    margin-top: 1.5em;
+
+    a {
+      text-decoration: underline;
+      color: $color-blue;
+    }
+  }
+
   &__label {
     font-size: 1.6rem;
     font-weight: 700;
@@ -56,6 +75,30 @@
     color: #fff;
     font-size: 1.6rem;
     font-weight: 700;
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+  }
+
+  &__message {
+    margin-top: 2.4rem;
+    border-radius: 1rem;
+    padding: 1em 1.2em;
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.7;
+
+    &.is-error {
+      background-color: #fff1f1;
+      color: $color-red;
+    }
+
+    &.is-success {
+      background-color: #e9fff4;
+      color: #007a3e;
+    }
   }
 
   &__note {
